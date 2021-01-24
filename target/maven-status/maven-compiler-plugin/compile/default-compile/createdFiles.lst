@@ -1,0 +1,14 @@
+model/SizeOfProduct.class
+controller/first_controller.class
+model/Product.class
+DAL/SizeDAO.class
+DAL/OrderStepDAO.class
+DAL/BaseDAO.class
+DAL/test.class
+controller/cookieProcess.class
+model/Category.class
+controller/authenticate.class
+DAL/ProductDAO.class
+model/User.class
+DAL/UserDAO.class
+controller/productProcess.class

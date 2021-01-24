@@ -1,0 +1,54 @@
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: #007bff;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -13px;
+}
+
+#descriptionArea img{
+    max-width: 70vw;
+}
+
+.navbar{
+    background-color: #b22830;
+}
+
+.navbar a {
+    color: white;
+}
+
+body{
+    font-family: 'Noto Sans', sans-serif;
+    background-image: url("https://www.highlandscoffee.com.vn/skins/default/images/bgmenu.jpg");
+    background-repeat:  repeat;
+    
+}
+
+.container{
+   background: #f9edc2; 
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
