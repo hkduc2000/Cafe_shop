@@ -1,6 +1,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%--<%@ include file = "template/header.jsp"%>--%>
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -40,6 +41,9 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<form:form modelAttribute="">
+
+</form:form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/js/medium-editor.js"></script>
 <script>
     var editor = new MediumEditor('.editable', {
