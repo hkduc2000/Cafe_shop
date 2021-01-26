@@ -6,16 +6,21 @@
 package controller;
 
 import DAL.ProductDAO;
+import java.io.File;
+import java.io.IOException;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -46,6 +51,13 @@ public class ProductController {
     }
     
     @RequestMapping(value = "/add", method = POST)
-    public ModelAndView Add(@ModelAttribute("") Product product){
-    }
+    public String Add(
+            @RequestParam("ProductImage") MultipartFile file) throws IOException{
+        if (!file.isEmpty()){
+            String fileName = context.getRealPath("/") + "static/img/" + file.getOriginalFilename();
+            file.transferTo(new File(fileName));
+            System.out.println("done");
+        }
+        return "homepage";
+    } 
 }

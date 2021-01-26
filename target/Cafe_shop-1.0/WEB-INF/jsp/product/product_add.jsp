@@ -3,12 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file = "/template/header.jsp"%>
-<form:form action="/${pageContext.request.contextPath}/products/add" method="POST" 
+<form:form action="${pageContext.request.contextPath}/products/add" method="POST" 
            modelAttribute="product" enctype="multipart/form-data">
     <div class="row">
         <div class="form-group col-12 col-md-7">
             <label>Tên sản phẩm</label>
-            <form:input path="ProductName" cssClass="form-control" required="required"/>
+            <form:input path="ProductName" cssClass="form-control"/>
         </div>
         <div class="form-group col-12 col-md-5">
             <label >Danh mục sản phẩm</label>
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         <label>Hình đại diện</label>
-        <form:input type="file" path="ProductImage" accept="image/*" required="required"/>
+        <input type="file" name="ProductImage" accept="image/*"/>
     </div>
     <div class="form-group">
         <label>Mô tả sản phẩm</label>
@@ -31,7 +31,7 @@
     <div class="col-12 col-md-8">
         <c:forEach items="${sizes}" var="size">
             <input type="text" class="form-control mt-2" 
-                   placeholder="Nhập giá cho size ${size}" required>
+                   placeholder="Nhập giá cho size ${size}">
         </c:forEach>
     </div>
     <button type="submit" class="btn btn-primary m-4">Thêm sản phẩm</button>
