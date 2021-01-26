@@ -21,18 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class first_controller {
-    @RequestMapping("/list")
-    public ModelAndView list(HttpServletRequest request, HttpServletResponse response){
-        ModelAndView mv = new ModelAndView("drink_list.jsp");
-        mv.addObject("products", new ProductDAO().getAll());
-        return mv;
-    }
-    
     @RequestMapping("/")
     public ModelAndView homepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         cookieProcess.welcomeLoginUser(request, response);
-        ModelAndView mv = new ModelAndView("test.jsp");
+        ModelAndView mv = new ModelAndView("/jsp/homepage.jsp");
         return mv;
-    }
+    }   
     
 }
