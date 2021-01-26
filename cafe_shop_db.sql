@@ -78,7 +78,7 @@ create table ProductInOrder(
 	Quantity int
 )
 
-
+--fix bug
 --select * from Product
 --select * from [User]
 --drop table Image
