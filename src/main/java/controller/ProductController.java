@@ -6,19 +6,9 @@
 package controller;
 
 import DAL.ProductDAO;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,19 +32,20 @@ public class ProductController {
     @RequestMapping("/list/{categoryid}")
     public ModelAndView List(HttpServletRequest request, HttpServletResponse response,
             @PathVariable int categoryid) {
-        ModelAndView mv = new ModelAndView("/jsp/product/product_list.jsp");
+        ModelAndView mv = new ModelAndView("product/product_list");
         mv.addObject("products", new ProductDAO().getProductsByCategoryID(categoryid));
         return mv;
     }
 
     @RequestMapping(value = "/add", method = GET)
-    public ModelAndView AddForm(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mv = new ModelAndView("/jsp/product/product_add.jsp");
+    public ModelAndView AddForm() {
+        ModelAndView mv = new ModelAndView("product/product_add");
         mv.addObject("sizes", new ProductDAO().getSizeList());
+        mv.addObject("product", new Product());
         return mv;
     }
-//    
-//    @RequestMapping(value = "/add", method = POST)
-//    public ModelAndView Add(){
-//    }
+    
+    @RequestMapping(value = "/add", method = POST)
+    public ModelAndView Add(@ModelAttribute("") Product product){
+    }
 }

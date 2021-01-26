@@ -6,7 +6,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ include file = "template/header.jsp"%>
+<%@ include file = "/template/header.jsp"%>
 
 <div class="modal hide fade" id="myModal">
     <div class="modal-dialog" role="document">
@@ -31,4 +31,4 @@
         $('#myModal').modal('show');
     });
 </script>
-<%@ include file = "template/footer.jsp"%>
+<%@ include file = "/template/footer.jsp"%>
