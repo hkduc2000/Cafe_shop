@@ -14,23 +14,33 @@ import java.util.ArrayList;
 public class Product {
     private int ProductID;
     private String ProductName;
+    private String ProductImage;
     private String Description;
     private int CategoryID;
-    private ArrayList<String> Images;
     private ArrayList<SizeOfProduct> Sizes;
 
-    public Product(String ProductName, String Description, int CategoryID) {
+    public Product(String ProductName, String ProductImage, String Description, int CategoryID) {
         this.ProductName = ProductName;
+        this.ProductImage = ProductImage;
         this.Description = Description;
         this.CategoryID = CategoryID;
     }
-    
-    public Product(int ProductID, String ProductName, String Description, int CategoryID, ArrayList<String> Images, ArrayList<SizeOfProduct> Sizes) {
+
+
+    public Product(int ProductID, String ProductName, String ProductImage, String Description, int CategoryID, ArrayList<SizeOfProduct> Sizes) {
         this.ProductID = ProductID;
         this.ProductName = ProductName;
+        this.ProductImage = ProductImage;
         this.Description = Description;
         this.CategoryID = CategoryID;
-        this.Images = Images;
+        this.Sizes = Sizes;
+    }
+
+    public Product(String ProductName, String ProductImage, String Description, int CategoryID, ArrayList<SizeOfProduct> Sizes) {
+        this.ProductName = ProductName;
+        this.ProductImage = ProductImage;
+        this.Description = Description;
+        this.CategoryID = CategoryID;
         this.Sizes = Sizes;
     }
 
@@ -41,8 +51,6 @@ public class Product {
     public void setSizes(ArrayList<SizeOfProduct> Sizes) {
         this.Sizes = Sizes;
     }
-
-    
 
     public Product() {
     }
@@ -79,13 +87,11 @@ public class Product {
         this.CategoryID = CategoryID;
     }
 
-    public ArrayList<String> getImages() {
-        return Images;
+    public String getProductImage() {
+        return ProductImage;
     }
 
-    public void setImages(ArrayList<String> Images) {
-        this.Images = Images;
+    public void setProductImage(String ProductImage) {
+        this.ProductImage = ProductImage;
     }
-
-   
 }

@@ -26,13 +26,9 @@ insert into Category values(N'Bánh ngọt')
 create table Product(
 	ProductID int identity(1,1) primary key,
 	ProductName nvarchar(100),
+	ProductImage nvarchar(1000),
 	Description nvarchar(4000),
 	CategoryID int references Category(CategoryID)
-)
-
-create table Image(
-	ImagePath nvarchar(1000) primary key,
-	ProductID int references Product(ProductID),
 )
 
 create table SizeOfProduct(
@@ -76,6 +72,20 @@ create table ProductInOrder(
 	OrderID int references [Order](OrderID),
 	ProductID int references Product(ProductID),
 	Quantity int
+)
+
+create table Combo (
+	ComboID int identity(1,1) primary key,
+	ComboName nvarchar(200),
+	ComboPrice int
+)
+
+create table ProductInCombo(
+	ComboID int references Combo(ComboID),
+	ProductID int references Product(ProductID),
+	Quantity int,
+	Size nvarchar(5) references SizeTable(Size),
+	primary key (ComboID, ProductID)
 )
 
 

@@ -24,7 +24,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import org.springframework.web.servlet.ModelAndView;
@@ -54,39 +53,8 @@ public class ProductController {
         mv.addObject("sizes", new ProductDAO().getSizeList());
         return mv;
     }
-    
-    private void saveImage(Part imgPart, int i, int ProductID) throws IOException{
-        String rootPath = context.getRealPath("/");
-        String imgPath = "static/img/product" + ProductID + "_" +i;
-        InputStream is = imgPart.getInputStream();
-        Files.copy(is, Paths.get(rootPath + imgPath),
-                StandardCopyOption.REPLACE_EXISTING);
-        new ProductDAO().addImg(imgPath, i);
-    }
-
-    @RequestMapping(value = "/add", method = POST)
-    public ModelAndView Add(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, IOException, ServletException {
-        request.setCharacterEncoding("UTF-8");
-        String ProductName = request.getParameter("ProductName");
-        String Description = request.getParameter("Description");
-        int CategoryID = Integer.parseInt(request.getParameter("CategoryID"));
-        Product product = new Product(ProductName, Description, CategoryID);
-        new ProductDAO().addProduct(product);
-        int ProductID = new ProductDAO().getIdentCur();
-        //Download thumbnail
-        Part thumbnailPart = request.getPart("ProductThubnail");
-        saveImage(thumbnailPart, 0, ProductID);
-        //Download images
-        ArrayList<Part> fileParts = (ArrayList<Part>) request.getParts();
-        int cnt = 1;
-        for (Part imgPart : fileParts) {
-            if (imgPart.getName().equals("ProductImages")) {
-                saveImage(imgPart, cnt, ProductID);
-                cnt++;
-            }
-        }
-        ModelAndView mv = new ModelAndView("/jsp/product/product_add.jsp");
-        mv.addObject("sizes", new ProductDAO().getSizeList());
-        return mv;
-    }
+//    
+//    @RequestMapping(value = "/add", method = POST)
+//    public ModelAndView Add(){
+//    }
 }
