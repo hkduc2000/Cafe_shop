@@ -57,9 +57,9 @@ public class ProductDAO extends BaseDAO {
             String sql = "INSERT INTO Product VALUES(?,?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, product.getProductName());
-            statement.setString(2, product.getDescription());
-            statement.setString(3, product.getProductImage());
-            statement.setInt(3, product.getCategoryID());
+            statement.setString(2, product.getProductImage());
+            statement.setString(3, product.getDescription());
+            statement.setInt(4, product.getCategoryID());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);

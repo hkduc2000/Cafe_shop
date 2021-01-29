@@ -88,7 +88,7 @@ create table ProductInCombo(
 	primary key (ComboID, ProductID)
 )
 
-
+delete from product where ProductID=9
 --select * from Product
 --select * from [User]
 --drop table Image

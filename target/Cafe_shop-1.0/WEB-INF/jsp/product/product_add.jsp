@@ -9,6 +9,7 @@
         <div class="form-group col-12 col-md-7">
             <label>Tên sản phẩm</label>
             <form:input path="ProductName" cssClass="form-control"/>
+            <form:errors path="ProductName" style="color:red;"></form:errors>
         </div>
         <div class="form-group col-12 col-md-5">
             <label >Danh mục sản phẩm</label>
@@ -21,7 +22,7 @@
     </div>
     <div class="form-group">
         <label>Hình đại diện</label>
-        <input type="file" name="ProductImage" accept="image/*"/>
+    <form:input type="file" path="ImageFile"/>
     </div>
     <div class="form-group">
         <label>Mô tả sản phẩm</label>
@@ -35,44 +36,7 @@
         </c:forEach>
     </div>
     <button type="submit" class="btn btn-primary m-4">Thêm sản phẩm</button>
-
 </form:form>
-<!--<form action="${pageContext.request.contextPath}/products/add" method="POST" enctype="multipart/form-data">
-    <div class="form-group">
-        <label>Tên sản phẩm</label>
-        <input type="text" name="ProductName" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label >Danh mục sản phẩm</label>
-        <select class="form-control" name="CategoryID">
-<c:forEach items="${categories}" var="ctg">
-    <option value="${ctg.categoryID}">${ctg.categoryName}</option>
-</c:forEach>
-</select>
-</div>
-<div class="form-group">
-<label>Mô tả sản phẩm</label>
-<textarea class="editable" name="Description"
-      style="min-height: 300px; width: 100%; border: 1px black solid;" required>
-</textarea>
-</div>
-<div class="form-group">
-<label>Hình đại diện</label>
-<input type="file" name=ProductThubnail" accept="image/*" required>
-</div>
-<div class="form-group">
-<label>Hình ảnh sản phẩm</label>
-<input type="file" name="ProductImages" accept="image/*" multiple required> 
-</div>
-<div class="form-group">
-<label>Giá sản phẩm:</label>
-<c:forEach items="${sizes}" var="size">
-    <input type="text" class="form-control mt-2" 
-           placeholder="Nhập giá cho size ${size}" required>
-</c:forEach>
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/js/medium-editor.js"></script>
 <script>
     var editor = new MediumEditor('.editable', {

@@ -6,6 +6,7 @@
 package model;
 
 import java.util.ArrayList;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -18,14 +19,22 @@ public class Product {
     private String Description;
     private int CategoryID;
     private ArrayList<SizeOfProduct> Sizes;
+    private MultipartFile ImageFile;
 
     public Product(String ProductName, String ProductImage, String Description, int CategoryID) {
         this.ProductName = ProductName;
         this.ProductImage = ProductImage;
         this.Description = Description;
         this.CategoryID = CategoryID;
+    }   
+
+    public MultipartFile getImageFile() {
+        return ImageFile;
     }
 
+    public void setImageFile(MultipartFile ImageFile) {
+        this.ImageFile = ImageFile;
+    }
 
     public Product(int ProductID, String ProductName, String ProductImage, String Description, int CategoryID, ArrayList<SizeOfProduct> Sizes) {
         this.ProductID = ProductID;
