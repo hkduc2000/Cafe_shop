@@ -20,10 +20,11 @@ import model.SizeOfProduct;
  * @author HKDUC
  */
 public class ProductDAO extends BaseDAO {
-    public ArrayList<Product> getAll(){
+    
+    public ArrayList<Product> getByCondition(String condition){
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM Product";
+            String sql = "SELECT * FROM Product " + condition;
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while(rs.next())
@@ -31,9 +32,9 @@ public class ProductDAO extends BaseDAO {
                 Product s = new Product();
                 s.setProductID(rs.getInt(1));
                 s.setProductName(rs.getString(2));
-                s.setDescription(rs.getString(3));
-                s.setCategoryID(rs.getInt(4));
-                s.setImages(getImage(s.getProductID()));
+                s.setProductImage(rs.getString(3));
+                s.setDescription(rs.getString(4));
+                s.setCategoryID(rs.getInt(5));
                 s.setSizes(getProductInf(s.getProductID()));
                 products.add(s);
             }
@@ -43,57 +44,26 @@ public class ProductDAO extends BaseDAO {
         return products;
     }
     
+    public ArrayList<Product> getAll(){
+        return getByCondition("");
+    }
+    
+    public ArrayList<Product> getProductsByCategoryID(int categoryID){
+        return getByCondition("where CategoryID="+categoryID);
+    }
+    
     public void addProduct(Product product){
         try {
-            String sql = "INSERT INTO Product VALUES(?,?,?)";
+            String sql = "INSERT INTO Product VALUES(?,?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, product.getProductName());
-            statement.setString(2, product.getDescription());
-            statement.setInt(3, product.getCategoryID());
+            statement.setString(2, product.getProductImage());
+            statement.setString(3, product.getDescription());
+            statement.setInt(4, product.getCategoryID());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    public ArrayList<Product> getProductsByCategoryID(int categoryID){
-        ArrayList<Product> products = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM Product WHERE CategoryID=?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, categoryID);
-            ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
-                Product s = new Product();
-                s.setProductID(rs.getInt(1));
-                s.setProductName(rs.getString(2));
-                s.setDescription(rs.getString(3));
-                s.setCategoryID(rs.getInt(4));
-                s.setImages(getImage(s.getProductID()));
-                products.add(s);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return products;
-    }
-    
-    public ArrayList<String> getImage(int ProductID){
-        ArrayList<String> imgs = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM Image WHERE ProductID=?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, ProductID);
-            ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
-                imgs.add(rs.getString(1));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return imgs;
     }
     
     public ArrayList<Category> getCategories(){

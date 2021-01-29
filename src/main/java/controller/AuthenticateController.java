@@ -26,7 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuthenticateController {
     @RequestMapping(value = "/login", method = POST)
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        ModelAndView mv = new ModelAndView("login_register_result.jsp");
+        ModelAndView mv = new ModelAndView("login_register_result");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = new UserDAO().getUser(username, password);
@@ -70,7 +70,7 @@ public class AuthenticateController {
             response = cookieProcess.addCookieToResponse(response, "password", password, 3600 * 24 * 15);
             msg = "Đã tạo tài khoản thành công";
         }
-        ModelAndView mv = new ModelAndView("login_register_result.jsp");
+        ModelAndView mv = new ModelAndView("login_register_result");
         mv.addObject("msg",msg);
         mv.addObject("type", "Đăng ký");
         return mv;

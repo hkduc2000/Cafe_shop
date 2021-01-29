@@ -24,8 +24,7 @@ public class first_controller {
     @RequestMapping("/")
     public ModelAndView homepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         cookieProcess.welcomeLoginUser(request, response);
-        ModelAndView mv = new ModelAndView("/jsp/homepage.jsp");
+        ModelAndView mv = new ModelAndView("homepage");
         return mv;
-    }   
-    
+    }
 }
