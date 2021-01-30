@@ -25,6 +25,8 @@ public class SizeOfProduct {
     public SizeOfProduct() {
     }
 
+    
+
     public int getProductID() {
         return ProductID;
     }
@@ -56,6 +58,4 @@ public class SizeOfProduct {
     public void setQuantity(int Quantity) {
         this.Quantity = Quantity;
     }
-    
-    
 }

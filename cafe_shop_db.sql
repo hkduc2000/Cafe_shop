@@ -54,11 +54,11 @@ create table OrderStepTable (
 	OrderStep nvarchar(100)
 )
 
-insert into OrderStepTable values ('Đang chọn sản phẩm')
-insert into OrderStepTable values ('Chờ lấy hàng')
-insert into OrderStepTable values ('Đang giao hàng')
-insert into OrderStepTable values ('Thành công')
-insert into OrderStepTable values ('Đã hủy')
+insert into OrderStepTable values (N'Đang chọn sản phẩm')
+insert into OrderStepTable values (N'Chờ lấy hàng')
+insert into OrderStepTable values (N'Đang giao hàng')
+insert into OrderStepTable values (N'Thành công')
+insert into OrderStepTable values (N'Đã hủy')
 
 create table [Order] (
 	OrderID int identity(1,1) primary key,
@@ -88,7 +88,14 @@ create table ProductInCombo(
 	primary key (ComboID, ProductID)
 )
 
-delete from product where ProductID=9
+create table ComboInOrder(
+	ComboID int references Combo(ComboID),
+	ProductID int references Product(ProductID),
+	Quantity int
+)
+
+--delete from product where 1=1
+--select * from SizeOfProduct
 --select * from Product
 --select * from [User]
 --drop table Image

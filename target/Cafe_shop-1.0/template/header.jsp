@@ -67,6 +67,10 @@
                         </div>
                     </li>
                 </c:if>
+<!--                <div class="searchBox">
+                    <input type="text" placeholder="Search...">
+                    <div class="search"></div>
+                </div>-->
             </ul>
             <c:if test="${sessionScope.role == 'user'}">
                 <a class="nav-item mr-3" href="cart" style="text-decoration: none;">

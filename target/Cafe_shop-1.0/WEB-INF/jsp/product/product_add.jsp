@@ -10,9 +10,9 @@
             <label>Tên sản phẩm</label>
             <form:input path="ProductName" cssClass="form-control"/>
             <form:errors path="ProductName" style="color:red;"></form:errors>
-        </div>
-        <div class="form-group col-12 col-md-5">
-            <label >Danh mục sản phẩm</label>
+            </div>
+            <div class="form-group col-12 col-md-5">
+                <label >Danh mục sản phẩm</label>
             <form:select cssClass="form-control" path="CategoryID">
                 <c:forEach items="${categories}" var="ctg">
                     <form:option value="${ctg.categoryID}">${ctg.categoryName}</form:option>
@@ -22,18 +22,32 @@
     </div>
     <div class="form-group">
         <label>Hình đại diện</label>
-    <form:input type="file" path="ImageFile"/>
+        <form:input type="file" path="ImageFile" required="required"/>
     </div>
     <div class="form-group">
         <label>Mô tả sản phẩm</label>
         <form:textarea cssClass="editable" path="Description"
                        cssStyle="min-height: 300px; width: 100%; border: 1px black solid; background-color:white;"/>
     </div>
-    <div class="col-12 col-md-8">
-        <c:forEach items="${sizes}" var="size">
-            <input type="text" class="form-control mt-2" 
-                   placeholder="Nhập giá cho size ${size}">
-        </c:forEach>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <c:forEach items="${sizes}" var="size">
+                <div class="form-group">
+                    <label>Nhập giá cho size ${size}</label>
+                    <input type="text" name="price${size}" class="form-control mt-2" 
+                           placeholder="Nhập giá cho size ${size}" required>
+                </div>
+            </c:forEach>
+        </div>
+        <div class="col-12 col-md-6">
+            <c:forEach items="${sizes}" var="size">
+                <div class="form-group">
+                    <label>Nhập số lượng sản phẩm size ${size}:</label>
+                    <input type="text" name="quantity${size}" class="form-control mt-2" 
+                           placeholder="Nhập số lượng sản phẩm size ${size}" value="0" required>
+                </div>
+            </c:forEach>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary m-4">Thêm sản phẩm</button>
 </form:form>

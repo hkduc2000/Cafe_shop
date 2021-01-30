@@ -44,6 +44,14 @@ public class ProductDAO extends BaseDAO {
         return products;
     }
     
+    public Product getProductByProductID(int ProductID){
+        ArrayList<Product> rs = getByCondition("where ProductID=" + ProductID);
+        if (rs.size()>0){
+            return rs.get(0);
+        }
+        return null;
+    }
+    
     public ArrayList<Product> getAll(){
         return getByCondition("");
     }
@@ -135,12 +143,14 @@ public class ProductDAO extends BaseDAO {
         return 0;
     }
     
-    public void addImg(String imgPath, int ProductID){
+    public void saveProductInf(SizeOfProduct inf){
         try {
-            String sql = "INSERT INTO Image VALUES(?,?)";
+            String sql = "insert into SizeOfProduct values(?,?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, imgPath);
-            statement.setInt(2, ProductID);
+            statement.setInt(1, inf.getProductID());
+            statement.setString(2,inf.getSize());
+            statement.setInt(3, inf.getPrice());
+            statement.setInt(4, inf.getQuantity());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);

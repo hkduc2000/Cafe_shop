@@ -18,6 +18,6 @@ public class test {
 //        User user = new User("Hoàng Kim Đức","hkduc","20001998","107 Châu Thị Vĩnh Tế", 
 //                "0948692350","hoangkimduclqd@gmail.com", true);
 //        new UserDAO().createUser(user);
-        System.out.println(new ProductDAO().getCategories().size());
+        System.out.println(new ProductDAO().getProductByProductID(26).getSizes().size());
     }
 }
