@@ -5,6 +5,7 @@
  */
 package model;
 
+import DAL.ProductDAO;
 import java.util.ArrayList;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,6 +22,15 @@ public class Product {
     private ArrayList<SizeOfProduct> Sizes;
     private MultipartFile ImageFile;
 
+    
+    public Product() {
+        ArrayList<String> sizetable = new ProductDAO().getSizeList();
+        this.Sizes = new ArrayList<>();
+        for (String size: sizetable){
+            this.Sizes.add(new SizeOfProduct(size,0,0));
+        }
+    }
+    
     public Product(String ProductName, String ProductImage, String Description, int CategoryID) {
         this.ProductName = ProductName;
         this.ProductImage = ProductImage;
@@ -61,8 +71,7 @@ public class Product {
         this.Sizes = Sizes;
     }
 
-    public Product() {
-    }
+    
 
     public int getProductID() {
         return ProductID;

@@ -1,6 +1,3 @@
-<%@page import="DAL.ProductDAO"%>
-<%@page import="model.Category"%>
-<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,8 +20,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main_style_sheet.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
-    <% ArrayList<Category> categories = new ProductDAO().getCategories();
-    request.setAttribute("categories", categories); %>
+    
 </head>
 <body>
     <img style="width: 100%;" 

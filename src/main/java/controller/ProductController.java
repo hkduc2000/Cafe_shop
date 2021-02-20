@@ -6,27 +6,19 @@
 package controller;
 
 import DAL.ProductDAO;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import model.Product;
-import model.SizeOfProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- *
- * @author HKDUC
- */
 @Controller
 @RequestMapping("/products")
 public class ProductController {
@@ -50,50 +42,32 @@ public class ProductController {
 
     @PostMapping("/add")
     public String AddProduct(@Valid @ModelAttribute("product") Product product,
-            BindingResult result, HttpServletRequest request) throws IOException {
+            BindingResult result, HttpServletRequest request, Model model) throws IOException, Exception {
         if (result.hasErrors()) {
             return "product/product_add";
         }
-        int newProductID = 0;
-        MultipartFile multipartFile = product.getImageFile();
-        if (multipartFile != null || !multipartFile.isEmpty()) {
-            String suffix = new String(multipartFile.getOriginalFilename().getBytes("ISO-8859-1"), "UTF-8");
-            String fileName = context.getRealPath("/") + "static/img/" + suffix;
-            try {
-                multipartFile.transferTo(new File(fileName));
-                product.setProductImage(suffix);
-                ProductDAO DB = new ProductDAO();
-                DB.addProduct(product);
-                newProductID = DB.getIdentCur();
-                //save size
-                ArrayList<String> sizes = DB.getSizeList();
-                ArrayList<SizeOfProduct> infs = new ArrayList<>();
-                for (String size : sizes){
-                    int price = Integer.parseInt(request.getParameter("price" + size));
-                    int quantity = Integer.parseInt(request.getParameter("quantity" + size));
-                    DB.saveProductInf(new SizeOfProduct(newProductID, size, price, quantity));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        int newProductID = new ProductDAO().addProduct(product, context.getRealPath("/"));
+        if (newProductID==0){
+            model.addAttribute("title", "Không thành công");
+            model.addAttribute("msg", "Xảy ra lỗi trong quá trình thêm sản phẩm");
+            return "message_page";
         }
-        
         //newProductID=0 => lỗi
         return "redirect:/products/detail/" + newProductID;
     }
-  
+
     @GetMapping("/detail/{productid}")
-    public String ProductDetail(Model model, @PathVariable int productid, HttpServletRequest request){
+    public String ProductDetail(Model model, @PathVariable int productid, HttpServletRequest request) {
         Product product = new ProductDAO().getProductByProductID(productid);
         model.addAttribute("sizes", new ProductDAO().getSizeList());
         model.addAttribute("product", product);
-        String role = (String)request.getSession().getAttribute("role");
-        if ( role != null && role.equals("admin")){
+        String role = (String) request.getSession().getAttribute("role");
+        if (role != null && role.equals("admin")) {
             return "product/product_detail_admin";
         }
         return "product/product_detail";
     }
-    
+
 //    @GetMapping("/edit/{productid}")
 //    public String ProductEdit(){
 //        

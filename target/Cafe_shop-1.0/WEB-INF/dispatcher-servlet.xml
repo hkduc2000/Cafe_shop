@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-2.5.xsd ">
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 	
 	
     <ctx:annotation-config></ctx:annotation-config>
@@ -23,8 +23,19 @@
     </bean>
     
     <bean id="multipartResolver"
-    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    <property name="maxUploadSize" value="2048000"/>
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="2048000"/>
+    </bean>
     
-</bean>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <bean class="interceptor.AuthorizationInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
 </beans>

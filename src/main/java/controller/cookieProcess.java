@@ -32,11 +32,9 @@ public class cookieProcess {
         Cookie[] cookies = request.getCookies();
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null) {
-            System.out.println("session null");
             return;
         }
         if (cookies == null) {
-            System.out.println("cookie null");
             return;
         }
         String username = "", password = "";

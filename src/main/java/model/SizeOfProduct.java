@@ -15,6 +15,14 @@ public class SizeOfProduct {
     private int price;
     private int Quantity;   
 
+    public SizeOfProduct(String size, int price, int Quantity) {
+        this.size = size;
+        this.price = price;
+        this.Quantity = Quantity;
+    }
+
+    
+    
     public SizeOfProduct(int ProductID, String size, int price, int Quantity) {
         this.ProductID = ProductID;
         this.size = size;
