@@ -23,7 +23,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class first_controller {
     @RequestMapping("/")
     public ModelAndView homepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        cookieProcess.welcomeLoginUser(request, response);
         ModelAndView mv = new ModelAndView("homepage");
         return mv;
     }

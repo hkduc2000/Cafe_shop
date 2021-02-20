@@ -2,10 +2,13 @@
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/SizeOfProduct.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/ProductDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/Product.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/interceptor/LoginInterceptor.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/ManageController.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/ProductController.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/UserDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/test.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/User.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/interceptor/AuthorizationInterceptor.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/AuthenticateController.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/SizeDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/cookieProcess.java

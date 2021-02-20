@@ -94,8 +94,9 @@ create table ComboInOrder(
 	Quantity int
 )
 
+--select * from sizetable
 --delete from product where 1=1
---select * from SizeOfProduct
+--select * from SizeOfProduct 
 --select * from Product
 --select * from [User]
 --drop table Image

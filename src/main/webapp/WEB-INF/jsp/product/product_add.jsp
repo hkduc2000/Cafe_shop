@@ -1,5 +1,4 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@page import="java.util.ArrayList"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file = "/template/header.jsp"%>
@@ -31,20 +30,20 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-6">
-            <c:forEach items="${sizes}" var="size">
+            <c:forEach begin="0" end="${sizes.size()-1}" var="i">
                 <div class="form-group">
-                    <label>Nhập giá cho size ${size}</label>
-                    <input type="text" name="price${size}" class="form-control mt-2" 
-                           placeholder="Nhập giá cho size ${size}" required>
+                    <label>Nhập giá cho size ${sizes[i]}</label>
+                    <form:input path="Sizes[${i}].price" cssClass="form-control mt-2" 
+                                required="required" placeholder="Nhập giá cho size ${sizes[i]}"/>
                 </div>
             </c:forEach>
         </div>
         <div class="col-12 col-md-6">
-            <c:forEach items="${sizes}" var="size">
+            <c:forEach begin="0" end="${sizes.size()-1}" var="i">
                 <div class="form-group">
-                    <label>Nhập số lượng sản phẩm size ${size}:</label>
-                    <input type="text" name="quantity${size}" class="form-control mt-2" 
-                           placeholder="Nhập số lượng sản phẩm size ${size}" value="0" required>
+                    <label>Nhập số lượng sản phẩm size ${sizes[i]}:</label>
+                    <form:input path="Sizes[${i}].quantity" cssClass="form-control mt-2" 
+                           placeholder="Nhập số lượng sản phẩm size ${sizes[i]}" required="required"/>
                 </div>
             </c:forEach>
         </div>
