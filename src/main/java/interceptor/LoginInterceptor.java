@@ -5,13 +5,16 @@
  */
 package interceptor;
 
+import DAL.OrderDAO;
 import DAL.ProductDAO;
 import controller.cookieProcess;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Category;
+import model.Order;
+import model.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,6 +30,18 @@ public class LoginInterceptor implements HandlerInterceptor {
         ArrayList<Category> categories = new ProductDAO().getCategories();
         request.setAttribute("categories", categories);
         cookieProcess.welcomeLoginUser(request, response);
+        
+        //check cart
+        HttpSession session = request.getSession();
+        if (session.getAttribute("role") != null && session.getAttribute("role").equals("admin")){
+            return true;
+        }
+        Order cart = (Order) session.getAttribute("cart");
+        if (cart == null && session.getAttribute("user") != null){
+            String username = ((User)session.getAttribute("user")).getUsername();
+            cart = new OrderDAO().getCart(username);
+            session.setAttribute("cart", cart);
+        }
         return true;
     }
 

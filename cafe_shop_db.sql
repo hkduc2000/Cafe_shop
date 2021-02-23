@@ -65,13 +65,21 @@ create table [Order] (
 	Username nvarchar(100) references [User](Username),
 	StepID int references OrderStepTable(StepID),
 	CreatedDate date,
-	TotalPrice int
+	ReceipientName nvarchar(100),
+	ReceipientAddress nvarchar(400),
+	ReceipientPhone varchar(100)
 )
+
+drop table [Order]
+drop table ProductInOrder
 
 create table ProductInOrder(
 	OrderID int references [Order](OrderID),
 	ProductID int references Product(ProductID),
-	Quantity int
+	Size nvarchar(5) references SizeTable(Size),
+	Quantity int,
+	Price int
+	primary key (OrderID,ProductID,Size)
 )
 
 create table Combo (
@@ -94,6 +102,10 @@ create table ComboInOrder(
 	Quantity int
 )
 
+
+--use cafe_shop_db
+--select * from [order]
+--select * from ProductInOrder
 --select * from sizetable
 --delete from product where 1=1
 --select * from SizeOfProduct 
