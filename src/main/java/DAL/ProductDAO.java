@@ -40,7 +40,7 @@ public class ProductDAO extends BaseDAO {
                 products.add(s);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return products;
     }
@@ -153,7 +153,7 @@ public class ProductDAO extends BaseDAO {
                 infs.add(inf);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return infs;
     }
@@ -244,7 +244,7 @@ public class ProductDAO extends BaseDAO {
                 return rs.getInt("Price");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
     }

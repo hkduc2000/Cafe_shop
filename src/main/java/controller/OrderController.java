@@ -72,6 +72,8 @@ public class OrderController {
         for (ProductInOrder inf: infs){
             inf.setPrice(DB.getPrice(inf.getProductID(), inf.getSize()));
             orderDAO.updatePriceProductInOrder(inf);
+            //update quantity in stock 
+            DB.updateQuantity(inf.getProductID(), inf.getSize(), -1 * inf.getQuantity());
         }
         model.addAttribute("title", "Đặt hàng thành công");
         model.addAttribute("msg", "Đơn hàng của bạn đã được gửi đến The Cafe Shop<br>"

@@ -38,13 +38,13 @@ public class OrderDAO extends BaseDAO {
                 orders.add(s);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return orders;
     }
     
     public ArrayList<Order> getAll() {
-        return getOrderByCondition("NOT StepID=1 ORDER BY OrderID DESC");
+        return getOrderByCondition("NOT StepID=1 ORDER BY OrderID ASC");
     }
     
     public ArrayList<Order> getOrdersByUsername(String username){
@@ -67,7 +67,7 @@ public class OrderDAO extends BaseDAO {
                 return s;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -90,7 +90,7 @@ public class OrderDAO extends BaseDAO {
                 return s;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -113,7 +113,7 @@ public class OrderDAO extends BaseDAO {
                 infs.add(s);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return infs;
     }
@@ -125,7 +125,7 @@ public class OrderDAO extends BaseDAO {
             statement.setString(1, Username);
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
