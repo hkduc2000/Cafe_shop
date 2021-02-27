@@ -5,6 +5,7 @@
  */
 package controller;
 
+import DAL.CustomDAO;
 import DAL.ProductDAO;
 import java.io.IOException;
 import javax.servlet.ServletContext;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import model.Product;
+import model.ProductInOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,6 +63,7 @@ public class ProductController {
         Product product = new ProductDAO().getProductByProductID(productid);
         model.addAttribute("sizes", new ProductDAO().getSizeList());
         model.addAttribute("product", product);
+        model.addAttribute("productInOrder", new ProductInOrder());
         String role = (String) request.getSession().getAttribute("role");
         if (role != null && role.equals("admin")) {
             return "product/product_detail_admin";
@@ -68,8 +71,9 @@ public class ProductController {
         return "product/product_detail";
     }
 
-//    @GetMapping("/edit/{productid}")
-//    public String ProductEdit(){
-//        
-//    }
+    @PostMapping("/delete")
+    public String ProductEdit(@RequestParam int ProductID, @RequestParam int CategoryID){
+        new ProductDAO().deleteProduct(ProductID);
+        return "redirect:/products/list/"+ CategoryID;
+    }
 }

@@ -55,29 +55,41 @@ create table OrderStepTable (
 )
 
 insert into OrderStepTable values (N'Đang chọn sản phẩm')
-insert into OrderStepTable values (N'Chờ lấy hàng')
+insert into OrderStepTable values (N'Chờ xác nhận')
+insert into OrderStepTable values (N'Đang chế biến')
 insert into OrderStepTable values (N'Đang giao hàng')
-insert into OrderStepTable values (N'Thành công')
+insert into OrderStepTable values (N'Đơn hàng thành công')
 insert into OrderStepTable values (N'Đã hủy')
 
 create table [Order] (
 	OrderID int identity(1,1) primary key,
 	Username nvarchar(100) references [User](Username),
 	StepID int references OrderStepTable(StepID),
-	CreatedDate date,
-	TotalPrice int
+	CreatedDate datetime,
+	RecipientName nvarchar(100),
+	RecipientAddress nvarchar(400),
+	RecipientPhone varchar(100)
 )
+
+select * from OrderStepTable
+
+drop table OrderStepTable
+drop table [Order]
+drop table ProductInOrder
 
 create table ProductInOrder(
 	OrderID int references [Order](OrderID),
 	ProductID int references Product(ProductID),
-	Quantity int
+	Size nvarchar(5) references SizeTable(Size),
+	Quantity int,
+	Price int
+	primary key (OrderID,ProductID,Size)
 )
 
 create table Combo (
 	ComboID int identity(1,1) primary key,
 	ComboName nvarchar(200),
-	ComboPrice int
+	Price int
 )
 
 create table ProductInCombo(
@@ -91,9 +103,13 @@ create table ProductInCombo(
 create table ComboInOrder(
 	ComboID int references Combo(ComboID),
 	ProductID int references Product(ProductID),
-	Quantity int
+	Quantity int,
+	Price int,
 )
 
+--use cafe_shop_db
+--select * from [order]
+--select * from ProductInOrder
 --select * from sizetable
 --delete from product where 1=1
 --select * from SizeOfProduct 

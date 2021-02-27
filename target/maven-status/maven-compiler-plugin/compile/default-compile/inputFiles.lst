@@ -6,12 +6,17 @@
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/ManageController.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/ProductController.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/UserDAO.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/OrderController.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/OrderDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/test.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/User.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/Order.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/interceptor/AuthorizationInterceptor.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/ProductInOrder.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/AuthenticateController.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/SizeDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/cookieProcess.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/OrderStepDAO.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/CustomDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/BaseDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/Category.java

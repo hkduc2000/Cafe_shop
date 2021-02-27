@@ -12,11 +12,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletContext;
 import model.Category;
 import model.Product;
 import model.SizeOfProduct;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -227,5 +225,27 @@ public class ProductDAO extends BaseDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void deleteProduct(int ProductID){
+        new CustomDAO().executeSQL("DELETE FROM SizeOfProduct WHERE ProductID=" + ProductID);
+        new CustomDAO().executeSQL("DELETE FROM ProductInOrder WHERE ProductID=" + ProductID);
+        new CustomDAO().executeSQL("DELETE FROM Product WHERE ProductID=" + ProductID);
+    }
+    
+    public int getPrice(int ProductID, String Size){
+        try {
+            String sql = "SELECT Price FROM SizeOfProduct WHERE ProductID=? AND Size=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, ProductID);
+            statement.setString(2, Size);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("Price");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SizeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 }

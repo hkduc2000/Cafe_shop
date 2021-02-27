@@ -105,8 +105,9 @@
                 <p>2. Đồng thời sẽ xóa dữ liệu của sản phẩm trong kho hàng, hình ảnh</p>
             </div>
             <div class="modal-footer" style="text-align: center;">
-                <form action="item_delete" method="POST">
-                    <input type="hidden" name="ProductID" value="${product.productID}">
+                <form action="${pageContext.request.contextPath}/products/delete" method="POST">
+                    <input type="hidden" name="ProductID" value="${product.productID}"/>
+                    <input type="hidden" name="CategoryID" value="${product.categoryID}"/>
                     <button type="submit" class="btn btn-danger">Xóa</button>
                 </form>
                 <button class="btn btn-secondary" data-dismiss="modal">Bỏ qua</button>

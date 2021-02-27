@@ -3,7 +3,7 @@
     Created on : Nov 4, 2020, 2:23:51 PM
     Author     : HKDUC
 --%>
-<%@page import="model.Product"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file = "/template/header.jsp"%>
@@ -28,59 +28,60 @@
                 </div>
                 <small>Số lượng còn lại: <span id="quantity">0</span></small>
                 <p>Giá: <span class="addsep" id="price">0</span>đ</p>
-                <form action="add_to_cart" method="POST">
-                    <input type="hidden" name="itemID" value="${1}">
-                    <input type="hidden" name="size" id="size" value="S">
+                <form:form action="${pageContext.request.contextPath}/order/add_to_cart" method="POST" modelAttribute="productInOrder">
+                    <form:hidden path="OrderID" value="${cart.orderID}"/>
+                    <form:hidden path="ProductID" value="${product.productID}"/>
+                    <form:hidden path="Size" id="size" value="S"/>
                     <div class="form-group row">
                         <label class="mr-3 ml-3">Số lượng:</label>
-                        <input class="form-control col-4 col-sm-3 col-md-2" name="buyQuantity" id="buyQuantity"
-                               type="number" value="1" onchange="updatePriceAndQuantity()">
+                        <form:input cssClass="form-control col-4 col-sm-3 col-md-2" path="Quantity" id="buyQuantity"
+                                    value="1" onchange="updatePriceAndQuantity()" type="number"/>
                     </div>
                     <button type="submit" id="addToCart" class="btn btn-outline-success"> Thêm vào giỏ hàng
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                        <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
+                            <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                            <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z"/>
                         </svg>
                     </button>
-                </form>
+                </form:form>
             </div>
             <div class="p-4 col-12" id="descriptionArea">
-            <h3>Thông tin sản phẩm</h3>
+                <h3>Thông tin sản phẩm</h3>
                 ${product.description}
             </div>
         </div>
     </div>
-    
+
     <div class="col-12 col-md-2 d-none d-md-block pt-2 " style="background: #fff8dd; margin-left: 6%;">
         <p style="text-align: center; font-size: 1.3rem;">Cà phê<br>bán chạy nhất</p>
         <div style="text-align: center;">
             <a href="item_detail?itemid=8" style="text-decoration: none;">
                 <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                <b class="truncate pl-2" style="color:black;">
-                    <span class="addsep">5699000</span>đ
-                    -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                </b>
+                    <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
+                    <b class="truncate pl-2" style="color:black;">
+                        <span class="addsep">5699000</span>đ
+                        -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
+                    </b>
             </a>
         </div>
         <div style="text-align: center;">
             <a href="item_detail?itemid=8" style="text-decoration: none;">
                 <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                <b class="truncate pl-2" style="color:black;">
-                    <span class="addsep">5699000</span>đ
-                    -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                </b>
+                    <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
+                    <b class="truncate pl-2" style="color:black;">
+                        <span class="addsep">5699000</span>đ
+                        -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
+                    </b>
             </a>
         </div>
         <div style="text-align: center;">
             <a href="item_detail?itemid=8" style="text-decoration: none;">
                 <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                <b class="truncate pl-2" style="color:black;">
-                    <span class="addsep">5699000</span>đ
-                    -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                </b>
+                    <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
+                    <b class="truncate pl-2" style="color:black;">
+                        <span class="addsep">5699000</span>đ
+                        -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
+                    </b>
             </a>
         </div>
     </div>
@@ -92,13 +93,17 @@
     prices.push(${size.price});
     quantity.push(${size.quantity});
     </c:forEach>
+    var sizetable = [0];
+    <c:forEach items="${sizes}" var="size">
+    sizetable.push("${size}");
+    </c:forEach>
     function updatePriceAndQuantity() {
         var ind = document.getElementById('inputSize').value;
         document.getElementById('price').innerHTML = prices[ind];
         document.getElementById('quantity').innerHTML = quantity[ind];
-        document.getElementById('size').value = ind;
+        document.getElementById('size').value = sizetable[ind];
         var buyQuantity = document.getElementById("buyQuantity").value;
-        if (quantity[ind]<buyQuantity){
+        if (quantity[ind] < buyQuantity) {
             document.getElementById('addToCart').disabled = true;
             document.getElementById('addToCart').innerHTML = "Hết hàng";
         } else {

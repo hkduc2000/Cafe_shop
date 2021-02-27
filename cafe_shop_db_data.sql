@@ -24,5 +24,37 @@ insert into Product values(N'PHINDI KEM SỮA',N'PHINDI KEM SỮA.png',
 N'PhinDi Kem Sữa - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Kem Sữa béo ngậy mang đến hương vị mới lạ, không thể hấp dẫn hơn!',
 1)
 
+insert into SizeOfProduct values(1,'S',25000,11);
+insert into SizeOfProduct values(1,'M',37000,8);
+insert into SizeOfProduct values(1,'L',53000,15);
+insert into SizeOfProduct values(2,'S',25000,14);
+insert into SizeOfProduct values(2,'M',38000,4);
+insert into SizeOfProduct values(2,'L',42000,9);
+insert into SizeOfProduct values(3,'S',23000,4);
+insert into SizeOfProduct values(3,'M',36000,15);
+insert into SizeOfProduct values(3,'L',54000,15);
+insert into SizeOfProduct values(4,'S',16000,4);
+insert into SizeOfProduct values(4,'M',31000,10);
+insert into SizeOfProduct values(4,'L',55000,11);
+insert into SizeOfProduct values(5,'S',23000,2);
+insert into SizeOfProduct values(5,'M',37000,6);
+insert into SizeOfProduct values(5,'L',45000,3);
+insert into SizeOfProduct values(6,'S',25000,5);
+insert into SizeOfProduct values(6,'M',37000,2);
+insert into SizeOfProduct values(6,'L',52000,15);
+insert into SizeOfProduct values(7,'S',15000,6);
+insert into SizeOfProduct values(7,'M',32000,3);
+insert into SizeOfProduct values(7,'L',45000,9);
+insert into SizeOfProduct values(8,'S',24000,6);
+insert into SizeOfProduct values(8,'M',32000,3);
+insert into SizeOfProduct values(8,'L',50000,5);
+insert into SizeOfProduct values(9,'S',27000,14);
+insert into SizeOfProduct values(9,'M',33000,8);
+insert into SizeOfProduct values(9,'L',41000,9);
+insert into SizeOfProduct values(10,'S',18000,6);
+insert into SizeOfProduct values(10,'M',32000,12);
+insert into SizeOfProduct values(10,'L',42000,8);
+
+
 insert into [User] values ('admin', 'admin','123456', 'abc','abc','abc',1)
 
