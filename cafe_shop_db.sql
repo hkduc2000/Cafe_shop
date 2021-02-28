@@ -71,11 +71,11 @@ create table [Order] (
 	RecipientPhone varchar(100)
 )
 
-select * from OrderStepTable
+--select * from OrderStepTable
 
-drop table OrderStepTable
-drop table [Order]
-drop table ProductInOrder
+--drop table OrderStepTable
+--drop table [Order]
+--drop table ProductInOrder
 
 create table ProductInOrder(
 	OrderID int references [Order](OrderID),
