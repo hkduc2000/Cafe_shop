@@ -70,7 +70,6 @@ public class AuthenticateController {
             response = cookieProcess.addCookieToResponse(response, "username", username, 3600 * 24 * 15);
             response = cookieProcess.addCookieToResponse(response, "password", password, 3600 * 24 * 15);
             msg = "Đã tạo tài khoản thành công";
-            new OrderDAO().createEmptyCart(username);
         }
         ModelAndView mv = new ModelAndView("login_register_result");
         mv.addObject("msg",msg);

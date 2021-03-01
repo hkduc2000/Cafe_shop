@@ -65,6 +65,8 @@ public class OrderDAO extends BaseDAO {
                 s.setStepID(rs.getInt(3));
                 s.setOrderInf(loadOrderInf(s.getOrderID()));
                 return s;
+            } else {
+                createEmptyCart(Username);
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);

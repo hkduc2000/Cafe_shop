@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import DAL.OrderDAO;
@@ -15,7 +10,6 @@ import model.ProductInOrder;
 import model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -65,7 +59,6 @@ public class OrderController {
         OrderDAO orderDAO = new OrderDAO();
         orderDAO.updateOrder(order);
         User user = ((User)session.getAttribute("user"));
-        orderDAO.createEmptyCart(user.getUsername());
         updateCart(session);
         ArrayList<ProductInOrder> infs = cart.getOrderInf(); 
         ProductDAO DB = new ProductDAO();
