@@ -144,6 +144,7 @@
         var ind = document.getElementById('inputSize').value;
         document.getElementById('price').innerHTML = prices[ind];
         document.getElementById('quantity').innerHTML = quantity[ind];
+        addThousandSep();
     }
     updatePriceAndQuantity();
 </script>

@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file = "/template/header.jsp"%>
+<h2 class="m-4" style="text-align: center;">Thực đơn ${categories[categoryID-1].categoryName}</h2>
 
 <div class="row">
     <c:forEach items="${products}" var="product">
@@ -17,7 +18,30 @@
     </c:forEach>
 </div>
 
+<nav class="mt-4" id="paginationControl">
+    <p style="text-align: center; margin-bottom: 0px">Trang 
+        <span id="cur">1</span>/<span id="total"></span>
+    </p>
+    <ul class="pagination justify-content-center">
+        <li class="page-item" style="cursor:pointer; user-select:none;" id="prev">
+            <a class="page-link" onclick="switchPage(-1)">Prev</a>
+        </li>
+        <li class="page-item" style="cursor:pointer; user-select:none;" id="next">
+            <a class="page-link" onclick="switchPage(1);">Next</a>
+        </li>
+    </ul>
+</nav>
+
 <script>
     addThousandSep();
+    cur_page=1;
+    items = document.getElementsByClassName("pagingitem");
+    size = 8;
+    prev = document.getElementById("prev");
+    next = document.getElementById("next");
+    lblcur = document.getElementById("cur");
+    lbltotal = document.getElementById("total");
+    controller = document.getElementById("paginationControl");
+    pagingInit();
 </script>
 <%@ include file = "/template/footer.jsp"%>

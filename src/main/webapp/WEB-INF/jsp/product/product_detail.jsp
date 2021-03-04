@@ -80,7 +80,6 @@
     sizetable.push("${size}");
     </c:forEach>
     function updatePriceAndQuantity() {
-        addThousandSep();
         var ind = document.getElementById('inputSize').value;
         document.getElementById('price').innerHTML = prices[ind];
         document.getElementById('quantity').innerHTML = quantity[ind];
@@ -94,8 +93,8 @@
             document.getElementById('addToCart').disabled = false;
             document.getElementById('addToCart').innerHTML = "Thêm vào giỏ hàng";
         }
+        addThousandSep();
     }
     updatePriceAndQuantity();
-    addThousandSep();
 </script>
 <%@ include file = "/template/footer.jsp"%>

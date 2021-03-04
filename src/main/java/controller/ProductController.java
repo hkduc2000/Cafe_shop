@@ -33,6 +33,7 @@ public class ProductController {
             @PathVariable int categoryid) {
         ModelAndView mv = new ModelAndView("product/product_list");
         mv.addObject("products", new ProductDAO().getProductsByCategoryID(categoryid));
+        mv.addObject("categoryID", categoryid);
         return mv;
     }
 
