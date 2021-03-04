@@ -4,18 +4,20 @@
 
 <div class="row">
     <c:forEach items="${products}" var="product">
-        <div class="col-6 col-md-4 col-lg-3 mt-1 item pagingitem" style="text-align: center;">
+        <div class="col-6 col-md-4 col-lg-3 mt-4 item pagingitem" style="text-align: center;">
             <a href="${pageContext.request.contextPath}/products/detail/${product.productID}" style="text-decoration: none;">
-                <img src="${pageContext.request.contextPath}/static/img/${product.productImage}" width="100%">
+                <img class="rounded-circle" src="${pageContext.request.contextPath}/static/img/${product.productImage}" width="85%">
                 <p class="truncate itemname pl-3 mb-0" style="color:black;">${product.productName}</p>
                 <b class="truncate pl-2" style="color:black;">
-                    <span class="addsep">5699000</span>đ
-                    -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
+                    <span class="addsep">${product.sizes[0].price}</span>đ
+                    - <span class="d-block d-sm-inline"><span class="addsep">${product.sizes[product.sizes.size()-1].price}</span>đ</span>
                 </b>
             </a>
         </div>
     </c:forEach>
 </div>
 
-
+<script>
+    addThousandSep();
+</script>
 <%@ include file = "/template/footer.jsp"%>

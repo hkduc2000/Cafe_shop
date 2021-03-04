@@ -14,9 +14,8 @@
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/interceptor/AuthorizationInterceptor.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/ProductInOrder.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/AuthenticateController.java
-/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/SizeDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/controller/cookieProcess.java
-/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/OrderStepDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/CustomDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/BaseDAO.java
 /home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/model/Category.java
+/home/hokiduc/NetBeansProjects/Cafe_shop/src/main/java/DAL/SaleDAO.java

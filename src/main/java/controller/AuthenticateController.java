@@ -8,12 +8,19 @@ package controller;
 import DAL.OrderDAO;
 import DAL.UserDAO;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AuthenticateController {
-    @RequestMapping(value = "/login", method = POST)
+    @PostMapping("/login")
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws IOException{
         ModelAndView mv = new ModelAndView("login_register_result");
         String username = request.getParameter("username");
@@ -45,7 +52,7 @@ public class AuthenticateController {
         return mv;
     }
     
-    @RequestMapping("/logout")
+    @GetMapping("/logout")
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws IOException{
         response = cookieProcess.addCookieToResponse(response, "username", "" , 0);
         response = cookieProcess.addCookieToResponse(response, "password", "" , 0);
@@ -54,7 +61,7 @@ public class AuthenticateController {
         return new ModelAndView("redirect:/");
     }
     
-    @RequestMapping("/register")
+    @PostMapping("/register")
     public ModelAndView register(HttpServletRequest request, HttpServletResponse response) throws IOException{
         request.setCharacterEncoding("UTF-8");
         String email = request.getParameter("email");
@@ -75,5 +82,14 @@ public class AuthenticateController {
         mv.addObject("msg",msg);
         mv.addObject("type", "Đăng ký");
         return mv;
+    }
+    
+    @PostMapping("/update_personal_info")
+    public String updatePersonalInfo(Model model, @ModelAttribute("newInfo") User user, HttpSession session){
+        new UserDAO().updateUser(user);
+        session.setAttribute("user", user);
+        model.addAttribute("title", "Cập nhật thành công");
+        model.addAttribute("msg", "Cập nhật thông tin cá nhân thành công");
+        return "message_page";
     }
 }

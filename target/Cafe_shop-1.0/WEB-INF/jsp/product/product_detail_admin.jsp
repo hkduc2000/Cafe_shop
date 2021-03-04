@@ -55,39 +55,20 @@
             </div>
         </div>
     </div>
-    
     <div class="col-12 col-md-2 d-none d-md-block pt-2 " style="background: #fff8dd; margin-left: 6%;">
-        <p style="text-align: center; font-size: 1.3rem;">Cà phê<br>bán chạy nhất</p>
-        <div style="text-align: center;">
-            <a href="item_detail?itemid=8" style="text-decoration: none;">
-                <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                <b class="truncate pl-2" style="color:black;">
-                    <span class="addsep">5699000</span>đ
-                    -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                </b>
-            </a>
-        </div>
-        <div style="text-align: center;">
-            <a href="item_detail?itemid=8" style="text-decoration: none;">
-                <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                <b class="truncate pl-2" style="color:black;">
-                    <span class="addsep">5699000</span>đ
-                    -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                </b>
-            </a>
-        </div>
-        <div style="text-align: center;">
-            <a href="item_detail?itemid=8" style="text-decoration: none;">
-                <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                <b class="truncate pl-2" style="color:black;">
-                    <span class="addsep">5699000</span>đ
-                    -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                </b>
-            </a>
-        </div>
+        <p style="text-align: center; font-size: 1.3rem;">Các sản phẩm liên quan</p>
+        <c:forEach items="${bestSeller[product.categoryID-1]}" var="s">
+            <div style="text-align: center;">
+               <a href="${pageContext.request.contextPath}/products/detail/${s.productID}" style="text-decoration: none;">
+                    <img src ="${pageContext.request.contextPath}/static/img/${s.productImage}" width="100%">
+                        <p class="truncate itemname pl-3 mb-0" style="color:black;">${s.productName}</p>
+                        <b class="truncate pl-2" style="color:black;">
+                            <span class="addsep">${product.sizes[0].price}</span>đ
+                            - <span class="d-block d-sm-inline"><span class="addsep">${s.sizes[s.sizes.size()-1].price}</span>đ</span>
+                        </b>
+                </a>
+            </div>   
+        </c:forEach>
     </div>
 </div>
             

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,12 +13,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
+    
     <!-- Medium Style Editor -->
     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css"
           media="screen" charset="utf-8">
+    
+    <!-- Local file -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main_style_sheet.css">
+    <script src="${pageContext.request.contextPath}/static/js/main_script.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
     
@@ -175,26 +179,77 @@
                 <div class="modal-body">
                     <table>
                         <tr>
-                            <td>Họ tên:</td>
-                            <td></td>
+                            <td>Họ tên: </td>
+                            <td>${user.name}</td>
                         </tr>
                         <tr>
-                            <td>Email:</td>
-                            <td></td>
+                            <td>Email: </td>
+                            <td>${user.mail}</td>
                         </tr>
                         <tr>
-                            <td>Địa chỉ:</td>
-                            <td></td>
+                            <td>Địa chỉ: </td>
+                            <td>${user.address}</td>
                         </tr>
                         <tr>
-                            <td>Số điện thoại:</td>
-                            <td></td>
+                            <td>Số điện thoại: </td>
+                            <td>${user.phone}</td>
                         </tr>
                     </table>
                 </div>
                 <div class="modal-footer" style="text-align: center;">
-                    <a href="profile_edit" class="btn btn-info">Chỉnh sửa thông tin/Mật khẩu</a>
+                    <a class="btn btn-info" onclick="$('#editInfoModal').modal('show');">
+                        Chỉnh sửa thông tin/Mật khẩu</a>
                     <a class="btn btn-secondary" data-dismiss="modal">Đóng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+                        
+    <div class="modal fade" id="editInfoModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chỉnh sửa thông tin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form:form action="${pageContext.request.contextPath}/update_personal_info" modelAttribute="newInfo"
+                               onsubmit="return checkPassword()">
+                        <form:hidden path="Username" value="${user.username}"/>
+                        <table>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <form:input type="email" cssClass="form-control" path="Mail" required="required" value="${user.mail}"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Họ tên:</label>
+                                <form:input cssClass="form-control" path="Name" required="required" value="${user.name}"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại:</label>
+                                <form:input type="phonenumber" cssClass="form-control" path="Phone" pattern="[0-9]{9,12}" required="required" value="${user.phone}"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ:</label>
+                                <form:input cssClass="form-control" path="Address" required="required" value="${user.address}"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Mật khẩu mới:</label>
+                                <form:input id="password1" type="password" class="form-control" path="Password" 
+                                            required="required" value="${user.password}"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Nhập lại mật khẩu mới:</label>
+                                <input id="password2" type="password" class="form-control" required="required" value="${user.password}">
+                            </div>
+                        </table>
+                            <p id="noti" style="color: red;"></p>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        </div>
+                    </form:form>
                 </div>
             </div>
         </div>

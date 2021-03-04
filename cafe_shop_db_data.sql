@@ -1,60 +1,227 @@
 ﻿use cafe_shop_db
-insert into Product values(N'PHINDI CHOCO',N'PHINDI CHOCO.png',
-N'PhinDi Choco - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Choco ngọt tan mang đến hương vị mới lạ, không thể hấp dẫn hơn!',
-1)
-insert into Product values(N'BẠC XỈU ĐÁ',N'BẠC XỈU ĐÁ.png',
-N'Nếu Phin Sữa Đá dành cho các bạn đam mê vị đậm đà, thì Bạc Xỉu Đá là một sự lựa chọn nhẹ “đô" cà phê nhưng vẫn thơm ngon, chất lừ không kém!',
-1)
-insert into Product values(N'PHIN ĐEN ĐÁ',N'PHIN ĐEN ĐÁ.png',
-N'Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin. ',
-1)
-insert into Product values(N'PHIN ĐEN NÓNG',N'PHIN ĐEN NÓNG.png',
-N'Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha từ Phin, cho thêm 1 thìa đường, mang đến vị cà phê đậm đà chất Phin. ',
-1)
-insert into Product values(N'PHIN SỮA ĐÁ',N'PHIN SỮA ĐÁ.png',
-N'Hương vị cà phê Việt Nam đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn độc đáo giữa hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Cà phê được pha từ Phin truyền thống, hoà cùng sữa đặc sánh và thêm vào chút đá tạo nên ly Phin Sữa Đá – Đậm Đà Chất Phin.',
-1)
-insert into Product values(N'PHIN SỮA NÓNG',N'PHIN SỮA NÓNG.png',
-N'Hương vị cà phê Việt Nam đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn độc đáo giữa hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Kết hợp với nước sôi từng giọt cà phê được chiết xuất từ Phin truyền thống, hoà cùng sữa đặc sánh tạo nên ly Phin Sữa Nóng – Đậm đà chất Phin.',
-1)
-insert into Product values(N'PHINDI HỒNG TRÀ',N'PHINDI HỒNG TRÀ.png',
-N'PhinDi Kem Sữa - Cà phê Phin thế hệ mới với chất Phin êm hơn, lần đầu tiên kết hợp cùng Hồng Trà mang đến hương vị quyện êm, phiên bản giới hạn chỉ trong mùa lễ hội 2020!',
-1)
-insert into Product values(N'PHINDI KEM SỮA',N'PHINDI KEM SỮA.png',
-N'PhinDi Kem Sữa - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Kem Sữa béo ngậy mang đến hương vị mới lạ, không thể hấp dẫn hơn!',
-1)
 
-insert into SizeOfProduct values(1,'S',25000,11);
-insert into SizeOfProduct values(1,'M',37000,8);
-insert into SizeOfProduct values(1,'L',53000,15);
-insert into SizeOfProduct values(2,'S',25000,14);
-insert into SizeOfProduct values(2,'M',38000,4);
-insert into SizeOfProduct values(2,'L',42000,9);
-insert into SizeOfProduct values(3,'S',23000,4);
-insert into SizeOfProduct values(3,'M',36000,15);
-insert into SizeOfProduct values(3,'L',54000,15);
-insert into SizeOfProduct values(4,'S',16000,4);
-insert into SizeOfProduct values(4,'M',31000,10);
-insert into SizeOfProduct values(4,'L',55000,11);
-insert into SizeOfProduct values(5,'S',23000,2);
-insert into SizeOfProduct values(5,'M',37000,6);
-insert into SizeOfProduct values(5,'L',45000,3);
-insert into SizeOfProduct values(6,'S',25000,5);
-insert into SizeOfProduct values(6,'M',37000,2);
-insert into SizeOfProduct values(6,'L',52000,15);
-insert into SizeOfProduct values(7,'S',15000,6);
-insert into SizeOfProduct values(7,'M',32000,3);
-insert into SizeOfProduct values(7,'L',45000,9);
-insert into SizeOfProduct values(8,'S',24000,6);
-insert into SizeOfProduct values(8,'M',32000,3);
-insert into SizeOfProduct values(8,'L',50000,5);
-insert into SizeOfProduct values(9,'S',27000,14);
-insert into SizeOfProduct values(9,'M',33000,8);
-insert into SizeOfProduct values(9,'L',41000,9);
-insert into SizeOfProduct values(10,'S',18000,6);
-insert into SizeOfProduct values(10,'M',32000,12);
-insert into SizeOfProduct values(10,'L',42000,8);
+INSERT INTO Product VALUES(N'Cà Phê Sữa Đá',N'Cà Phê Sữa Đá.jpg',N'Cà phê phin kết hợp cũng sữa đặc là một sáng tạo đầy tự hào của người Việt, được xem món uống thương hiệu của Việt Nam.',1);
+INSERT INTO Product VALUES(N'Bạc Xỉu',N'Bạc Xỉu.jpg',N'Theo chân những người gốc Hoa đến định cư tại Sài Gòn, Bạc sỉu là cách gọi tắt của "Bạc tẩy xỉu phé" trong tiếng Quảng Đông, chính là: Ly sữa trắng kèm một chút cà phê.',1);
+INSERT INTO Product VALUES(N'Caramel Macchiato Đá',N'Caramel Macchiato Đá.jpg',N'Vị thơm béo của sữa tươi, vị đắng thanh thoát của cà phê Espresso hảo hạng, và vị ngọt đậm của sốt caramel.',1);
+INSERT INTO Product VALUES(N'Cà Phê Đá Xay-Lạnh',N'Cà Phê Đá Xay-Lạnh.jpg',N'Một phiên bản "upgrade" từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.',1);
+INSERT INTO Product VALUES(N'Latte Đá',N'Latte Đá.jpg',N'Latte là một sự kết hợp tinh tế giữa lớp nền Espresso hảo hạng và sữa tươi (nhiều hơn so với Cappucino) - mang đến sự cân bằng, nhẹ nhàng trong hương vị.',1);
+INSERT INTO Product VALUES(N'Cold Brew Truyền Thống',N'Cold Brew Truyền Thống.jpg',N'Nguyên bản và Tươi mới với hương gỗ thông, hạt dẻ, nốt sô cô la đặc trưng, hương khói nhẹ của hạt Arabica Cầu Đất.',1);
+INSERT INTO Product VALUES(N'Cold Brew Sữa Tươi',N'Cold Brew Sữa Tươi.jpg',N'Thanh mát và cân bằng với hương vị cà phê nguyên bản 100% Arabica Cầu Đất cùng sữa tươi thơm béo cho từng ngụm tròn vị, hấp dẫn.',1);
+INSERT INTO Product VALUES(N'Americano Nóng',N'Americano Nóng.jpg',N'Americano được pha chế bằng cách thêm nước vào một hoặc hai shot Espresso để pha loãng độ đặc của cà phê, từ đó mang lại hương vị nhẹ nhàng, không gắt mạnh và vẫn thơm nồng nàn.',1);
+INSERT INTO Product VALUES(N'Americano Đá',N'Americano Đá.jpg',N'Americano được pha chế bằng cách thêm nước vào một hoặc hai shot Espresso để pha loãng độ đặc của cà phê, từ đó mang lại hương vị nhẹ nhàng, không gắt mạnh và vẫn thơm nồng nàn.',1);
+INSERT INTO Product VALUES(N'Cappuccino Nóng',N'Cappuccino Nóng.jpg',N'Cappuccino được gọi vui là thức uống "một-phần-ba" - 1/3 Espresso, 1/3 Sữa nóng, 1/3 Foam.',1);
+INSERT INTO Product VALUES(N'Cappuccino Đá',N'Cappuccino Đá.jpg',N'Cappuccino được gọi vui là thức uống "một-phần-ba" - 1/3 Espresso, 1/3 Sữa nóng, 1/3 Foam.',1);
+INSERT INTO Product VALUES(N'Caramel Macchiato Nóng',N'Caramel Macchiato Nóng.jpg',N'Vị thơm béo của bọt sữa và sữa tươi, vị đắng thanh thoát của cà phê Espresso hảo hạng, và vị ngọt đậm của sốt caramel.',1);
+INSERT INTO Product VALUES(N'Latte Nóng',N'Latte Nóng.jpg',N'Khi chuẩn bị Latte, cà phê Espresso và sữa nóng được trộn lẫn vào nhau, bên trên vẫn là lớp foam nhưng mỏng và nhẹ hơn Cappucinno.',1);
+INSERT INTO Product VALUES(N'Mocha Nóng',N'Mocha Nóng.jpg',N'Cà phê Mocha được ví von đơn giản là Sốt Sô cô la được pha cùng một tách Espresso.',1);
+INSERT INTO Product VALUES(N'Mocha Đá',N'Mocha Đá.jpg',N'Cà phê Mocha được ví von đơn giản là Sốt Sô cô la được pha cùng một tách Espresso.',1);
+INSERT INTO Product VALUES(N'Cà Phê Đen Nóng',N'Cà Phê Đen Nóng.jpg',N'Một tách cà phê đen thơm ngào ngạt, phảng phất mùi cacao là món quà tự thưởng tuyệt vời nhất cho những ai mê đắm tinh chất nguyên bản nhất của cà phê. Một tách cà phê trầm lắng, thi vị giữa dòng đời vồn vã.',1);
+INSERT INTO Product VALUES(N'Cà Phê Đen Đá',N'Cà Phê Đen Đá.jpg',N'Một tách cà phê đen thơm ngào ngạt, phảng phất mùi cacao là món quà tự thưởng tuyệt vời nhất cho những ai mê đắm tinh chất nguyên bản nhất của cà phê. Một tách cà phê trầm lắng, thi vị giữa dòng đời vồn vã.',1);
+INSERT INTO Product VALUES(N'Cà Phê Sữa Nóng',N'Cà Phê Sữa Nóng.jpg',N'Cà phê phin kết hợp cũng sữa đặc là một sáng tạo đầy tự hào của người Việt, được xem món uống thương hiệu của Việt Nam.',1);
+INSERT INTO Product VALUES(N'Espresso Đá',N'Espresso Đá.jpg',N'cà phê máy sử dụng tỷ lệ trộn 70% Arabica và 30% Robusta, cà phê nguyện chất chiết suất từ máy dưới áp suất cao, hương thơm mạnh và chua nhẹ từ hạt, vị đậm đà của hạt robusta, hàm lượng cafein thấp do tính chất của hạt Arabica',1);
+INSERT INTO Product VALUES(N'Espresso Nóng',N'Espresso Nóng.jpg',N'Một cốc Espresso nguyên bản được bắt đầu bởi những hạt Arabica chất lượng, phối trộn với tỉ lệ cân đối hạt Robusta, cho ra vị ngọt caramel, vị chua dịu và sánh đặc. Để đạt được sự kết hợp này, chúng tôi xay tươi hạt cà phê cho mỗi lần pha.',1);
+INSERT INTO Product VALUES(N'Bạc Xỉu Nóng',N'Bạc Xỉu Nóng.jpg',N'Bạc xỉu nóng',1);
+INSERT INTO Product VALUES(N'Cold Brew Phúc Bồn Tử',N'Cold Brew Phúc Bồn Tử.jpg',N'Vị chua ngọt của trái phúc bồn tử, làm dậy lên hương vị trái cây tự nhiên vốn sẵn có trong hạt cà phê, hòa quyện thêm vị đăng đắng, ngọt dịu nhẹ nhàng của Cold Brew mang đến cách thưởng thức cà phê hoàn toàn mới và đầy thú vị.',1);
+INSERT INTO Product VALUES(N'Cold Brew Cam Sả',N'Cold Brew Cam Sả.jpg',N'Tươi mát - Mượt mà, là sự kết hợp đầy mới mẻ khi hương vị của cam và sả được cân bằng trên nền của những nốt hương cà phê pha lạnh.',1);
 
+INSERT INTO Product VALUES(N'Phúc Bồn Tử Cam Đá Xay',N'Phúc Bồn Tử Cam Đá Xay.jpg',N'Tê tái ngay đầu lưỡi bởi sự mát lạnh của đá xay. Hòa quyện thêm hương vị chua chua, ngọt ngọt từ trái cam tươi và trái phúc bồn tử 100% tự nhiên, để cho ra một hương vị thanh mát, kích thích vị giác đầy thú vị ngay từ lần đầu thưởng thức.',2);
+INSERT INTO Product VALUES(N'Cà Phê Đá Xay-Lạnh',N'Cà Phê Đá Xay-Lạnh.jpg',N'Một phiên bản "upgrade" từ ly cà phê sữa quen thuộc, nhưng lại tỉnh táo và tươi mát hơn bởi lớp đá xay đi kèm. Nhấp 1 ngụm là thấy đã, ngụm thứ hai thêm tỉnh táo và cứ thế lôi cuốn bạn đến giọt cuối cùng.',2);
+INSERT INTO Product VALUES(N'Cookie Đá Xay',N'Cookie Đá Xay.jpg',N'Những mẩu bánh cookies giòn rụm kết hợp ăn ý với sữa tươi và kem tươi béo ngọt, đem đến cảm giác lạ miệng gây thích thú. Một món uống phá cách dễ thương.',2);
+INSERT INTO Product VALUES(N'Đào Việt Quất Đá Xay',N'Đào Việt Quất Đá Xay.jpg',N'Vẫn vị đào quen thuộc nhưng được khoác lên mình một vẻ đầy thanh mát và giải khát hơn.',2);
+INSERT INTO Product VALUES(N'Chocolate Đá Xay',N'Chocolate Đá Xay.jpg',N'Sữa và kem tươi béo ngọt được “cá tính hoá” bởi vị chocolate đăng đắng. Dành cho các tín đồ hảo ngọt. Lựa chọn hàng đầu nếu bạn đang cần chút năng lượng tinh thần để thúc đẩy nhịp sống.',2);
+INSERT INTO Product VALUES(N'Matcha Đá Xay',N'Matcha Đá Xay.jpg',N'Matcha thanh, nhẫn, và đắng nhẹ được nhân đôi sảng khoái khi uống lạnh. Nhấn nhá thêm những nét bùi béo của kem và sữa. Gây thương nhớ vô cùng!',2);
+INSERT INTO Product VALUES(N'Chanh Sả Đá Xay',N'Chanh Sả Đá Xay.jpg',N'Sự kết hợp giữa chanh, sả thơm lừng và đá đem lại cảm giác mát lạnh xua tan nóng bức của mùa hè.',2);
+INSERT INTO Product VALUES(N'Yogurt Dưa Lưới phát tài',N'Yogurt Dưa Lưới phát tài.jpg',N'Vị yogurt chua ngọt, mát lạnh tái tê, quyện cùng dưa lưới thơm lừng thử là mê ngay Giải nhiệt đón Tết thiệt healthy với Yogurt Dưa lưới chua chua ngọt ngọt, thơm lừng đặc trưng, thêm sẵn topping dưa lưới vàng tươi, cho bạn nhâm nhi vui miệng, để chuyện hẹn hò rôm rả thiệt vui. Thưởng thức ngay!',2);
+
+INSERT INTO Product VALUES(N'Trà Phúc Bồn Tử',N'Trà Phúc Bồn Tử.jpg',N'Lần đầu tiên Trà Oolong và trái "Phúc Bồn Tử" hoàn toàn tự nhiên, được kết hợp để tạo ra một dư vị hoàn toàn tươi mới. Nhấp ngay một ngụm là thấy mát lạnh ngay tức khắc, đọng lại mãi nơi cuốn họng là hương vị trà thơm lừng và vị ngọt thanh, chua dịu khó quên của trái phúc bồn tử.',3);
+INSERT INTO Product VALUES(N'Trà Đào Cam Sả - Đá',N'Trà Đào Cam Sả - Đá.jpg',N'Vị thanh ngọt của đào Hy Lạp, vị chua dịu của Cam Vàng nguyên vỏ, vị chát của trà đen tươi được ủ mới mỗi 4 tiếng, cùng hương thơm nồng đặc trưng của sả chính là điểm sáng làm nên sức hấp dẫn của thức uống này.',3);
+INSERT INTO Product VALUES(N'Oolong Hạt Sen - Nóng',N'Oolong Hạt Sen - Nóng.jpg',N'Trà Oolong Sen nóng sẽ dậy hơn mùi thơm của trà và hạt sen. Trà có vị ngọt dịu nhẹ, rất tốt cho sức khoẻ và giúp giữ ấm cơ thể. Sản phẩm có vị trà nhẹ nhàng vừa phải, có thể dùng được cả cho buổi sáng và chiều tối.',3);
+INSERT INTO Product VALUES(N'Oolong Vải - Đá',N'Oolong Vải - Đá.jpg',N'Là sự kết hợp của trà Oolong và trái vải quen thuộc. Là món uống thanh mát, dịu nhẹ rất dễ sử dụng bởi sự hoà quyện của vị chua thanh của vải, hậu vị ngọt kéo dài của trà oolong. Ngoài ra trong mỗi ly nước còn có thêm trái vải dùng kèm. Sản phẩm có vị trà nhẹ nhàng vừa phải, có thể dùng được cả cho buổi sáng và chiều tối.',3);
+INSERT INTO Product VALUES(N'Trà Đào Cam Sả - Nóng',N'Trà Đào Cam Sả - Nóng.jpg',N'Vị thanh ngọt của đào Hy Lạp, vị chua dịu của Cam Vàng nguyên vỏ, vị chát của trà đen tươi được ủ mới mỗi 4 tiếng, cùng hương thơm nồng đặc trưng của sả',3);
+INSERT INTO Product VALUES(N'Oolong Vải - Nóng',N'Oolong Vải - Nóng.jpg',N'Là sự kết hợp của trà Oolong và trái vải quen thuộc. Nhâm nhi từng ngụm trà nóng khách hàng sẽ trải nghiệm trọn vẹn hơn mùi thơm dậy của vải. Vị ngọt thanh, chua nhẹ của sản phẩm vẫn được giữ nguyên rất dễ uống. Sản phẩm có vị trà nhẹ nhàng vừa phải, có thể dùng được cả cho buổi sáng và chiều tối.',3);
+INSERT INTO Product VALUES(N'Oolong Hạt Sen - Đá',N'Oolong Hạt Sen - Đá.jpg',N'Trà Oolong và hạt Sen đều là những thành phần tốt cho sức khoẻ với công dụng thanh lọc cơ thể, giải nhiệt và làm đẹp. Trà Oolong Sen An nhiên có vị thanh mát của trà và sen, vị ngọt dịu kết hợp cùng chút béo thơm của cream cheese và hạt sen tươi mềm ăn kèm. Sản phẩm có vị trà nhẹ nhàng vừa phải, có thể dùng được cả cho buổi sáng và chiều tối.',3);
+INSERT INTO Product VALUES(N'Trà Dưa Lưới phú quý',N'Trà Dưa Lưới phú quý.jpg',N'Từng ngụm ngon mê ly từ Dưa lưới thanh mát quyện cùng nền Trà Lài thơm ngon dịu nhẹ. Thanh vị trà mát vị dưa - Sự kết hợp hoàn hảo của nền trà lài nhẹ nhàng, cùng vị dưa lưới đặc trưng, Nhà còn cho sẵn topping dưa lươi vàng tươi để bạn thêm hứng khởi đón Tết thiệt tươi khoẻ, may mắn nhé. Thưởng thức ngay!',3);
+
+INSERT INTO Product VALUES(N'Trà Sữa Mắc Ca Trân Châu Trắng',N'Trà Sữa Mắc Ca Trân Châu Trắng.jpg',N'Đổi vị tươi mới - Vừa ngon vừa khoẻ Mỗi ngày với Nhà sẽ là điều tươi mới hơn với sữa hạt mắc ca thơm ngon, bổ dưỡng quyện cùng nền trà Oolong cho vị cân bằng, ngọt dịu. Trân châu trắng giòn dai được thêm sẵn, mang lại cho bạn cảm giác "đã" trong từng ngụm, thoả cơn thèm trà sữa ngay.',4);
+INSERT INTO Product VALUES(N'Trà Đen Macchiato',N'Trà Đen Macchiato.jpg',N'Trà đen được ủ mới mỗi ngày, giữ nguyên được vị chát mạnh mẽ đặc trưng của lá trà, phủ bên trên là lớp Macchiato "homemade" bồng bềnh quyến rũ vị phô mai mặn mặn mà béo béo.',4);
+INSERT INTO Product VALUES(N'Matcha Macchiato',N'Matcha Macchiato.jpg',N'Bột trà xanh Matcha thơm lừng hảo hạng cùng lớp Macchiato béo ngậy là một sự kết hợp tuyệt vời.',4);
+INSERT INTO Product VALUES(N'Trà Lài Macchiato - Lạnh',N'Trà Lài Macchiato - Lạnh.jpg',N'Ngọt mát tinh tế Ngay ngụm đầu tiên chính là vị beo béo ngọt dịu của lớp macchiato, sau đó được cân bằng lại bởi lớp thanh mát từ nền trà lài dịu nhẹ - 1 hương vị tươi mới cho team hảo ngọt nhưng thích thanh mát.',4);
+
+INSERT INTO Product VALUES(N'Sinh Tố Cam Xoài',N'Sinh Tố Cam Xoài.jpg',N'Vị mứt cam xoài hòa trộn độc đáo với sữa chua, cho cảm giác chua ngọt rất sướng. Điểm nhấn là những mẩu bánh cookie giòn tan giúp sự thưởng thức thêm thú vị.',5);
+INSERT INTO Product VALUES(N'Sinh Tố Việt Quất',N'Sinh Tố Việt Quất.jpg',N'Mứt Việt Quất chua thanh, ngòn ngọt, phối hợp nhịp nhàng với dòng sữa chua bổ dưỡng. Là món sinh tố thơm ngon mà cả đầu lưỡi và làn da đều thích.',5);
+INSERT INTO Product VALUES(N'Trà Matcha Latte Nóng',N'Trà Matcha Latte Nóng.jpg',N'Với màu xanh mát mắt của bột trà Matcha, vị ngọt nhẹ nhàng, pha trộn cùng sữa tươi và lớp foam mềm mịn, Matcha Latte là thức uống yêu thích của tất cả mọi người khi ghé The Coffee House.',5);
+INSERT INTO Product VALUES(N'Trà Matcha Latte Đá',N'Trà Matcha Latte Đá.jpg',N'Với màu xanh mát mắt của bột trà Matcha, vị ngọt nhẹ nhàng, pha trộn cùng sữa tươi và lớp foam mềm mịn, Matcha Latte là thức uống yêu thích của tất cả mọi người khi ghé The Coffee House.',5);
+INSERT INTO Product VALUES(N'Socola Đá',N'Socola Đá.jpg',N'Cacao nguyên chất hoà cùng sữa tươi béo ngậy. Vị ngọt tự nhiên, không gắt cổ, để lại một chút đắng nhẹ, cay cay trên đầu lưỡi.',5);
+
+INSERT INTO Product VALUES(N'Mít Sấy',N'Mít Sấy.jpg',N'Mít sấy khô vàng ươm giòn rụm, khi ăn vẫn giữ nguyên được vị ngọt lịm của mít tươi.',6);
+INSERT INTO Product VALUES(N'Sô Cô La Gừng',N'Sô Cô La Gừng.jpg',N'Sô cô la cùng gừng dẻo thơm đặc trưng, ngọt ngào và cay dịu - món ăn vặt mới lạ, cho cuộc hẹn hò thêm thú vị tươi mới. Cắn 1 miếng là mê, và nhâm nhi với món nước nào cũng ngon tái tê.',6);
+INSERT INTO Product VALUES(N'Bánh Mì Que Pate Cay',N'Bánh Mì Que Pate Cay.jpg',N'Bánh Mì Que Pate Cay',6);
+INSERT INTO Product VALUES(N'Bánh Mì Que Pate',N'Bánh Mì Que Pate.jpg',N'Bánh Mì Que Pate',6);
+
+insert into SizeOfProduct values(1,'S',30000,12);
+insert into SizeOfProduct values(1,'M',30000,7);
+insert into SizeOfProduct values(1,'L',43000,4);
+insert into SizeOfProduct values(2,'S',18000,12);
+insert into SizeOfProduct values(2,'M',39000,9);
+insert into SizeOfProduct values(2,'L',51000,2);
+insert into SizeOfProduct values(3,'S',30000,7);
+insert into SizeOfProduct values(3,'M',39000,4);
+insert into SizeOfProduct values(3,'L',51000,3);
+insert into SizeOfProduct values(4,'S',28000,4);
+insert into SizeOfProduct values(4,'M',38000,12);
+insert into SizeOfProduct values(4,'L',40000,10);
+insert into SizeOfProduct values(5,'S',26000,2);
+insert into SizeOfProduct values(5,'M',38000,5);
+insert into SizeOfProduct values(5,'L',47000,3);
+insert into SizeOfProduct values(6,'S',25000,12);
+insert into SizeOfProduct values(6,'M',32000,9);
+insert into SizeOfProduct values(6,'L',42000,2);
+insert into SizeOfProduct values(7,'S',22000,10);
+insert into SizeOfProduct values(7,'M',37000,8);
+insert into SizeOfProduct values(7,'L',48000,1);
+insert into SizeOfProduct values(8,'S',30000,2);
+insert into SizeOfProduct values(8,'M',34000,2);
+insert into SizeOfProduct values(8,'L',42000,9);
+insert into SizeOfProduct values(9,'S',16000,14);
+insert into SizeOfProduct values(9,'M',30000,9);
+insert into SizeOfProduct values(9,'L',51000,14);
+insert into SizeOfProduct values(10,'S',16000,8);
+insert into SizeOfProduct values(10,'M',36000,9);
+insert into SizeOfProduct values(10,'L',45000,14);
+insert into SizeOfProduct values(11,'S',29000,8);
+insert into SizeOfProduct values(11,'M',39000,14);
+insert into SizeOfProduct values(11,'L',46000,2);
+insert into SizeOfProduct values(12,'S',15000,11);
+insert into SizeOfProduct values(12,'M',31000,3);
+insert into SizeOfProduct values(12,'L',50000,7);
+insert into SizeOfProduct values(13,'S',16000,4);
+insert into SizeOfProduct values(13,'M',35000,1);
+insert into SizeOfProduct values(13,'L',52000,14);
+insert into SizeOfProduct values(14,'S',22000,4);
+insert into SizeOfProduct values(14,'M',39000,8);
+insert into SizeOfProduct values(14,'L',54000,7);
+insert into SizeOfProduct values(15,'S',25000,6);
+insert into SizeOfProduct values(15,'M',34000,12);
+insert into SizeOfProduct values(15,'L',46000,15);
+insert into SizeOfProduct values(16,'S',25000,4);
+insert into SizeOfProduct values(16,'M',33000,11);
+insert into SizeOfProduct values(16,'L',41000,2);
+insert into SizeOfProduct values(17,'S',26000,2);
+insert into SizeOfProduct values(17,'M',39000,2);
+insert into SizeOfProduct values(17,'L',52000,10);
+insert into SizeOfProduct values(18,'S',17000,12);
+insert into SizeOfProduct values(18,'M',36000,2);
+insert into SizeOfProduct values(18,'L',49000,2);
+insert into SizeOfProduct values(19,'S',25000,13);
+insert into SizeOfProduct values(19,'M',35000,7);
+insert into SizeOfProduct values(19,'L',52000,13);
+insert into SizeOfProduct values(20,'S',24000,5);
+insert into SizeOfProduct values(20,'M',36000,9);
+insert into SizeOfProduct values(20,'L',55000,13);
+insert into SizeOfProduct values(21,'S',15000,1);
+insert into SizeOfProduct values(21,'M',36000,12);
+insert into SizeOfProduct values(21,'L',50000,5);
+insert into SizeOfProduct values(22,'S',28000,8);
+insert into SizeOfProduct values(22,'M',39000,8);
+insert into SizeOfProduct values(22,'L',41000,8);
+insert into SizeOfProduct values(23,'S',30000,4);
+insert into SizeOfProduct values(23,'M',40000,7);
+insert into SizeOfProduct values(23,'L',45000,6);
+insert into SizeOfProduct values(24,'S',28000,14);
+insert into SizeOfProduct values(24,'M',34000,5);
+insert into SizeOfProduct values(24,'L',45000,8);
+insert into SizeOfProduct values(25,'S',22000,7);
+insert into SizeOfProduct values(25,'M',34000,2);
+insert into SizeOfProduct values(25,'L',41000,14);
+insert into SizeOfProduct values(26,'S',21000,11);
+insert into SizeOfProduct values(26,'M',40000,3);
+insert into SizeOfProduct values(26,'L',44000,15);
+insert into SizeOfProduct values(27,'S',29000,4);
+insert into SizeOfProduct values(27,'M',38000,3);
+insert into SizeOfProduct values(27,'L',53000,12);
+insert into SizeOfProduct values(28,'S',30000,11);
+insert into SizeOfProduct values(28,'M',34000,4);
+insert into SizeOfProduct values(28,'L',55000,11);
+insert into SizeOfProduct values(29,'S',19000,15);
+insert into SizeOfProduct values(29,'M',32000,14);
+insert into SizeOfProduct values(29,'L',55000,8);
+insert into SizeOfProduct values(30,'S',22000,10);
+insert into SizeOfProduct values(30,'M',38000,6);
+insert into SizeOfProduct values(30,'L',47000,2);
+insert into SizeOfProduct values(31,'S',16000,11);
+insert into SizeOfProduct values(31,'M',34000,13);
+insert into SizeOfProduct values(31,'L',51000,7);
+insert into SizeOfProduct values(32,'S',19000,8);
+insert into SizeOfProduct values(32,'M',35000,4);
+insert into SizeOfProduct values(32,'L',51000,14);
+insert into SizeOfProduct values(33,'S',27000,7);
+insert into SizeOfProduct values(33,'M',34000,13);
+insert into SizeOfProduct values(33,'L',50000,15);
+insert into SizeOfProduct values(34,'S',23000,15);
+insert into SizeOfProduct values(34,'M',31000,1);
+insert into SizeOfProduct values(34,'L',55000,3);
+insert into SizeOfProduct values(35,'S',18000,7);
+insert into SizeOfProduct values(35,'M',39000,11);
+insert into SizeOfProduct values(35,'L',50000,3);
+insert into SizeOfProduct values(36,'S',21000,8);
+insert into SizeOfProduct values(36,'M',31000,2);
+insert into SizeOfProduct values(36,'L',42000,3);
+insert into SizeOfProduct values(37,'S',21000,7);
+insert into SizeOfProduct values(37,'M',34000,5);
+insert into SizeOfProduct values(37,'L',52000,7);
+insert into SizeOfProduct values(38,'S',22000,11);
+insert into SizeOfProduct values(38,'M',35000,5);
+insert into SizeOfProduct values(38,'L',41000,1);
+insert into SizeOfProduct values(39,'S',24000,10);
+insert into SizeOfProduct values(39,'M',31000,2);
+insert into SizeOfProduct values(39,'L',51000,14);
+insert into SizeOfProduct values(40,'S',28000,12);
+insert into SizeOfProduct values(40,'M',35000,12);
+insert into SizeOfProduct values(40,'L',44000,8);
+insert into SizeOfProduct values(41,'S',21000,3);
+insert into SizeOfProduct values(41,'M',35000,1);
+insert into SizeOfProduct values(41,'L',41000,9);
+insert into SizeOfProduct values(42,'S',16000,9);
+insert into SizeOfProduct values(42,'M',37000,6);
+insert into SizeOfProduct values(42,'L',51000,3);
+insert into SizeOfProduct values(43,'S',24000,14);
+insert into SizeOfProduct values(43,'M',31000,8);
+insert into SizeOfProduct values(43,'L',43000,5);
+insert into SizeOfProduct values(44,'S',26000,2);
+insert into SizeOfProduct values(44,'M',30000,14);
+insert into SizeOfProduct values(44,'L',45000,9);
+insert into SizeOfProduct values(45,'S',16000,11);
+insert into SizeOfProduct values(45,'M',37000,3);
+insert into SizeOfProduct values(45,'L',42000,14);
+insert into SizeOfProduct values(46,'S',23000,2);
+insert into SizeOfProduct values(46,'M',40000,3);
+insert into SizeOfProduct values(46,'L',53000,15);
+insert into SizeOfProduct values(47,'S',26000,5);
+insert into SizeOfProduct values(47,'M',30000,2);
+insert into SizeOfProduct values(47,'L',52000,4);
+insert into SizeOfProduct values(48,'S',24000,1);
+insert into SizeOfProduct values(48,'M',40000,2);
+insert into SizeOfProduct values(48,'L',45000,11);
+insert into SizeOfProduct values(49,'S',19000,8);
+insert into SizeOfProduct values(49,'M',36000,2);
+insert into SizeOfProduct values(49,'L',42000,4);
+insert into SizeOfProduct values(50,'S',21000,8);
+insert into SizeOfProduct values(50,'M',36000,7);
+insert into SizeOfProduct values(50,'L',44000,6);
+insert into SizeOfProduct values(51,'S',19000,14);
+insert into SizeOfProduct values(51,'M',39000,5);
+insert into SizeOfProduct values(51,'L',53000,7);
+insert into SizeOfProduct values(52,'S',26000,4);
+insert into SizeOfProduct values(52,'M',35000,1);
+insert into SizeOfProduct values(52,'L',51000,9);
 
 insert into [User] values ('admin', 'admin','123456', 'abc','abc','abc',1)
 
+with t as(
+SELECT ProductID ,SUM(Quantity) AS Quantity 
+FROM ProductInOrder
+GROUP BY (ProductID))
+SELECT a.*, Quantity
+INTO [Sales]
+FROM Product a left join t on a.ProductID = t.ProductID
+ORDER BY Quantity DESC;

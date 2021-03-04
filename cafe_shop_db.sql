@@ -15,12 +15,11 @@ create table Category(
 )
 
 insert into Category values(N'Cà phê')	
-insert into Category values(N'Nước ép')
-insert into Category values(N'Trà sữa')
-insert into Category values(N'Trà')
-insert into Category values(N'Cookie')
-insert into Category values(N'Pizza & Hamburger')
-insert into Category values(N'Bánh ngọt')
+insert into Category values(N'Thức uống đá xay')
+insert into Category values(N'Trà trái cây')
+insert into Category values(N'Trà sữa - Macchiato')
+insert into Category values(N'Đồ uống khác')
+insert into Category values(N'Đồ ăn nhẹ')
 
 
 create table Product(
@@ -71,12 +70,6 @@ create table [Order] (
 	RecipientPhone varchar(100)
 )
 
---select * from OrderStepTable
-
---drop table OrderStepTable
---drop table [Order]
---drop table ProductInOrder
-
 create table ProductInOrder(
 	OrderID int references [Order](OrderID),
 	ProductID int references Product(ProductID),
@@ -106,6 +99,8 @@ create table ComboInOrder(
 	Quantity int,
 	Price int,
 )
+
+
 
 --use cafe_shop_db
 --select * from [order]

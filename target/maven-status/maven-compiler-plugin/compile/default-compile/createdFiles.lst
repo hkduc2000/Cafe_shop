@@ -4,9 +4,8 @@ controller/first_controller.class
 interceptor/LoginInterceptor.class
 model/Product.class
 model/ProductInOrder.class
-DAL/SizeDAO.class
+controller/first_controller$1.class
 DAL/CustomDAO.class
-DAL/OrderStepDAO.class
 controller/OrderController.class
 DAL/OrderDAO.class
 controller/AuthenticateController.class
@@ -20,3 +19,4 @@ DAL/ProductDAO.class
 interceptor/AuthorizationInterceptor.class
 model/User.class
 DAL/UserDAO.class
+DAL/SaleDAO.class

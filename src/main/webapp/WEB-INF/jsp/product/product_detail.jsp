@@ -35,7 +35,7 @@
                     <div class="form-group row">
                         <label class="mr-3 ml-3">Số lượng:</label>
                         <form:input cssClass="form-control col-4 col-sm-3 col-md-2" path="Quantity" id="buyQuantity"
-                                    value="1" onchange="updatePriceAndQuantity()" type="number"/>
+                                    value="1" min="1" max="1" onchange="updatePriceAndQuantity()" type="number"/>
                     </div>
                     <button type="submit" id="addToCart" class="btn btn-outline-success"> Thêm vào giỏ hàng
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -53,37 +53,19 @@
     </div>
 
     <div class="col-12 col-md-2 d-none d-md-block pt-2 " style="background: #fff8dd; margin-left: 6%;">
-        <p style="text-align: center; font-size: 1.3rem;">Cà phê<br>bán chạy nhất</p>
-        <div style="text-align: center;">
-            <a href="item_detail?itemid=8" style="text-decoration: none;">
-                <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                    <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                    <b class="truncate pl-2" style="color:black;">
-                        <span class="addsep">5699000</span>đ
-                        -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                    </b>
-            </a>
-        </div>
-        <div style="text-align: center;">
-            <a href="item_detail?itemid=8" style="text-decoration: none;">
-                <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                    <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                    <b class="truncate pl-2" style="color:black;">
-                        <span class="addsep">5699000</span>đ
-                        -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                    </b>
-            </a>
-        </div>
-        <div style="text-align: center;">
-            <a href="item_detail?itemid=8" style="text-decoration: none;">
-                <img src ="https://www.highlandscoffee.com.vn/vnt_upload/product/03_2018/PHIN-SUA-DA.png" width="100%">
-                    <p class="truncate itemname pl-3 mb-0" style="color:black;">Phin sữa đá</p>
-                    <b class="truncate pl-2" style="color:black;">
-                        <span class="addsep">5699000</span>đ
-                        -<span class="d-block d-sm-inline"><span class="addsep">6690000</span>đ</span>
-                    </b>
-            </a>
-        </div>
+        <p style="text-align: center; font-size: 1.3rem;">Các sản phẩm liên quan</p>
+        <c:forEach items="${bestSeller[product.categoryID-1]}" var="s">
+            <div style="text-align: center;">
+               <a href="${pageContext.request.contextPath}/products/detail/${s.productID}" style="text-decoration: none;">
+                    <img src ="${pageContext.request.contextPath}/static/img/${s.productImage}" width="100%">
+                        <p class="truncate itemname pl-3 mb-0" style="color:black;">${s.productName}</p>
+                        <b class="truncate pl-2" style="color:black;">
+                            <span class="addsep">${product.sizes[0].price}</span>đ
+                            - <span class="d-block d-sm-inline"><span class="addsep">${s.sizes[s.sizes.size()-1].price}</span>đ</span>
+                        </b>
+                </a>
+            </div>   
+        </c:forEach>
     </div>
 </div>
 <script>
@@ -98,10 +80,12 @@
     sizetable.push("${size}");
     </c:forEach>
     function updatePriceAndQuantity() {
+        addThousandSep();
         var ind = document.getElementById('inputSize').value;
         document.getElementById('price').innerHTML = prices[ind];
         document.getElementById('quantity').innerHTML = quantity[ind];
         document.getElementById('size').value = sizetable[ind];
+        document.getElementById("buyQuantity").max = quantity[ind];
         var buyQuantity = document.getElementById("buyQuantity").value;
         if (quantity[ind] < buyQuantity) {
             document.getElementById('addToCart').disabled = true;
@@ -112,5 +96,6 @@
         }
     }
     updatePriceAndQuantity();
+    addThousandSep();
 </script>
 <%@ include file = "/template/footer.jsp"%>

@@ -248,4 +248,27 @@ public class ProductDAO extends BaseDAO {
         }
         return 0;
     }
+    
+    public ArrayList<Product> getBestSellerByCategoryID(int CategoryID) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT TOP 4 * FROM Sales WHERE CategoryID=?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, CategoryID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product s = new Product();
+                s.setProductID(rs.getInt(1));
+                s.setProductName(rs.getString(2));
+                s.setProductImage(rs.getString(3));
+                s.setDescription(rs.getString(4));
+                s.setCategoryID(rs.getInt(5));
+                s.setSizes(getProductInf(s.getProductID()));
+                products.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
 }

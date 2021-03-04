@@ -6,13 +6,10 @@
 package interceptor;
 
 import DAL.OrderDAO;
-import DAL.ProductDAO;
 import controller.cookieProcess;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Category;
 import model.Order;
 import model.User;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -27,8 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        ArrayList<Category> categories = new ProductDAO().getCategories();
-        request.setAttribute("categories", categories);
+        
         cookieProcess.welcomeLoginUser(request, response);
         
         //check cart
@@ -48,7 +44,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
             ModelAndView modelAndView) throws Exception {
-        
+        request.setAttribute("newInfo", new User());
     }
 
     @Override
