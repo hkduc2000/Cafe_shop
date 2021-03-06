@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<h3>IV. Tỉ suất doanh thu theo loại sản phẩm</h3>
+<h3>IV. Tỉ trọng doanh thu theo loại sản phẩm</h3>
 <div style="text-align: center;">
     <div id="chart4" class="mx-auto p-4" 
          style="background-color:#fff; width: 80%; height: 40vw;">

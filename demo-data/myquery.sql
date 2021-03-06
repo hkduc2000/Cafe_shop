@@ -40,6 +40,7 @@ GROUP BY (CategoryName)
 
 select sum(Quantity*Price) as revenue,  CONVERT(date, CreatedDate) as day
 from [order] a join [ProductInOrder] b on a.orderid = b.orderid
+where  a.CreatedDate is not null
 group by CONVERT(date, CreatedDate)
 
 select sum(Quantity*Price) as revenue, month(CreatedDate) as month, 

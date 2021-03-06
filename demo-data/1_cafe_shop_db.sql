@@ -1,4 +1,4 @@
-﻿--create database cafe_shop_db
+﻿create database cafe_shop_db
 use cafe_shop_db
 
 create table SizeTable(

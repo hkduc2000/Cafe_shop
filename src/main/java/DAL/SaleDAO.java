@@ -36,6 +36,7 @@ public class SaleDAO extends BaseDAO {
         try {
             String sql = "select sum(Quantity*Price) as revenue,  CONVERT(date, CreatedDate) as day\n"
                     + "from [order] a join [ProductInOrder] b on a.orderid = b.orderid\n"
+                    + "where  a.CreatedDate is not null\n"
                     + "group by CONVERT(date, CreatedDate)";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -57,6 +58,7 @@ public class SaleDAO extends BaseDAO {
             String sql = "select sum(Quantity*Price) as revenue, month(CreatedDate) as month, \n"
                     + "year(CreatedDate) as year\n"
                     + "from [order] a join [ProductInOrder] b on a.orderid = b.orderid\n"
+                    + "where  a.CreatedDate is not null\n"
                     + "group by month(CreatedDate), year(CreatedDate)";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
@@ -78,6 +80,7 @@ public class SaleDAO extends BaseDAO {
         try {
             String sql = "select sum(Quantity*Price) as revenue, year(CreatedDate) as year\n"
                     + "from [order] a join [ProductInOrder] b on a.orderid = b.orderid\n"
+                    + "where  a.CreatedDate is not null\n"
                     + "group by year(CreatedDate)";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
