@@ -1,26 +1,4 @@
-// function downloadImg(imgUrl, imgName) {
-//     var a = $("<a>")
-//         .attr("href", imgUrl)
-//         .attr("download", imgName+ ".png")
-//         .appendTo("body");
-
-//     a[0].click();
-//     a.remove();
-// }
-
-// var a = $(".slick-track img")
-
-// for (var i = 0; i < a.length; i++) {
-//     downloadImg(a[i].src, a[i].alt);
-// }
-
-// var rs = "";
-// for (var i = 0; i < a.length; i++) {
-//     rs += ("INSERT INTO Product VALUES('"+ a[i].alt +"','" + a[i].alt + ".png','',2);\n");
-// }
-// console.log(rs);
-
-
+// site: https://order.thecoffeehouse.com/order
 var a = $("#cate6 li,#cate15 li")
 var rs = "";
 var qr = "";

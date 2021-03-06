@@ -34,7 +34,7 @@ INTO [Sales]
 FROM Product a left join t on a.ProductID = t.ProductID
 select * from [Sales];
 
-select CategoryName, SUM(Revenue) 
+select CategoryName, SUM(Revenue) as Revenue 
 from Sales a join Category b on a.CategoryID = b.CategoryID 
 GROUP BY (CategoryName)
 
@@ -50,3 +50,5 @@ group by month(CreatedDate), year(CreatedDate)
 select sum(Quantity*Price) as revenue, year(CreatedDate) as year
 from [order] a join [ProductInOrder] b on a.orderid = b.orderid
 group by year(CreatedDate)
+
+SELECT * FROM Category
