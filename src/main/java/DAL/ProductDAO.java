@@ -123,7 +123,7 @@ public class ProductDAO extends BaseDAO {
     public ArrayList<Category> getCategories() {
         ArrayList<Category> categories = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM Category";
+            String sql = "SELECT * FROM Category;";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -252,7 +252,7 @@ public class ProductDAO extends BaseDAO {
     public ArrayList<Product> getBestSellerByCategoryID(int CategoryID) {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "SELECT TOP 4 * FROM Sales WHERE CategoryID=?;";
+            String sql = "SELECT TOP 4 * FROM Sales WHERE CategoryID=? ORDER BY Quantity DESC;";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, CategoryID);
             ResultSet rs = statement.executeQuery();

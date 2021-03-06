@@ -7,6 +7,13 @@ function addThousandSep() {
     }
 }
 
+function addThousandSep1() {
+    var sp = document.getElementsByClassName('addsep1');
+    for (var i = 0; i < sp.length; i++) {
+        sp[i].innerText = parseInt(sp[i].innerText).toLocaleString('en');
+    }
+}
+
 function checkPassword(){
     if (document.getElementById("password1").value == document.getElementById("password2").value){
         return true;
@@ -26,43 +33,40 @@ var itemDisplay = "block";
 var controller;
 
 function pagingInit(){
-    for (var i = size; i < items.length; i++) {
-        items[i].style.display = "none";
-    }
-    lbltotal.innerHTML = Math.ceil(items.length / size);
+    cur_page = 1;
+    $("#cur").text(cur_page);
+    items.slice(size,items.length).hide();
+    $("#total").text(Math.ceil(items.length / size));
     if (cur_page === Math.ceil(items.length / size)) {
-        next.classList.add('disabled');
+        $('#next').addClass('disabled');
     } else {
-        next.classList.remove('disabled');
+        $('#next').removeClass('disabled');
     }
     if (cur_page === 1) {
-        prev.classList.add('disabled');
+        $('#prev').addClass('disabled');
     } else {
-        prev.classList.remove('disabled');
+        $('#prev').removeClass('disabled');
     }
-    if (cur_page === 1 && cur_page === Math.ceil(items.length / size)){
-        controller.style.display = "none";
+    if (cur_page === 1 && 1 >= Math.ceil(items.length / size)){
+        $("#paginationControl").hide();
+    } else {
+        $("#paginationControl").show();
     }
 }
 
 function switchPage(state) {
-    console.log(state)
-    lblcur.innerHTML = parseInt(lblcur.innerHTML) + state;
-    for (var j = (cur_page - 1) * size; (j < items.length) && (j < cur_page * size); j++) {
-        items[j].style.display = "none";
-    }
+    items.slice((cur_page-1)*size, Math.min(cur_page*size, items.length)).hide();
     cur_page = cur_page + state;
-    for (var j = (cur_page - 1) * size; (j < items.length) && (j < cur_page * size); j++) {
-        items[j].style.display = itemDisplay;
-    }
+    $("#cur").text(cur_page);
+    items.slice((cur_page-1)*size, Math.min(cur_page*size, items.length)).show();
     if (cur_page === Math.ceil(items.length / size)) {
-        next.classList.add('disabled');
+        $('#next').addClass('disabled');
     } else {
-        next.classList.remove('disabled');
+        $('#next').removeClass('disabled');
     }
     if (cur_page === 1) {
-        prev.classList.add('disabled');
+        $('#prev').addClass('disabled');
     } else {
-        prev.classList.remove('disabled');
+        $('#prev').removeClass('disabled');
     }
 }

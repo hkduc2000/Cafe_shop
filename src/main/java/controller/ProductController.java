@@ -37,28 +37,6 @@ public class ProductController {
         return mv;
     }
 
-    @GetMapping("/add")
-    public String AddForm(@ModelAttribute("product") Product product, Model model) {
-        model.addAttribute("sizes", new ProductDAO().getSizeList());
-        return "product/product_add";
-    }
-
-    @PostMapping("/add")
-    public String AddProduct(@Valid @ModelAttribute("product") Product product,
-            BindingResult result, HttpServletRequest request, Model model) throws IOException, Exception {
-        if (result.hasErrors()) {
-            return "product/product_add";
-        }
-        int newProductID = new ProductDAO().addProduct(product, context.getRealPath("/"));
-        if (newProductID==0){
-            model.addAttribute("title", "Không thành công");
-            model.addAttribute("msg", "Xảy ra lỗi trong quá trình thêm sản phẩm");
-            return "message_page";
-        }
-        //newProductID=0 => lỗi
-        return "redirect:/products/detail/" + newProductID;
-    }
-
     @GetMapping("/detail/{productid}")
     public String ProductDetail(Model model, @PathVariable int productid, HttpServletRequest request) {
         Product product = new ProductDAO().getProductByProductID(productid);
@@ -72,9 +50,4 @@ public class ProductController {
         return "product/product_detail";
     }
 
-    @PostMapping("/delete")
-    public String ProductEdit(@RequestParam int ProductID, @RequestParam int CategoryID){
-        new ProductDAO().deleteProduct(ProductID);
-        return "redirect:/products/list/"+ CategoryID;
-    }
 }

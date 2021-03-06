@@ -63,27 +63,8 @@
 </nav>
 <script>
     addThousandSep();
-    controller = document.getElementById('paginationControl');
-    prev = document.getElementById('prev');
-    next = document.getElementById('next');
-    lblcur = document.getElementById('cur');
-    lbltotal = document.getElementById('total');
-    curtab = 1;
-    size=6;
-    itemDisplay = "table-row";
-    items = document.getElementsByClassName('pagingitem showit');
-    if (items.length <= size) {
-        controller.style.display = "none";
-    } else {
-        controller.style.display = "block";
-        lbltotal.innerHTML = Math.ceil(items.length / size);
-    }
-    cur = 1;
-    for (var j = 0; (j < items.length) && (j < size); j++) {
-        items[j].style.display = "table-row";
-    }
-    for (var j = size; j < items.length; j++) {
-        items[j].style.display = "none";
-    }
+    size = 4;
+    items = $('.pagingitem');
+    pagingInit();
 </script>
 <%@ include file = "/template/footer.jsp"%>

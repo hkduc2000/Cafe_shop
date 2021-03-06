@@ -49,7 +49,7 @@ public class OrderDAO extends BaseDAO {
     
     public ArrayList<Order> getOrdersByUsername(String username){
         return getOrderByCondition("NOT StepID=1 AND Username='"+ username +
-                "' ORDER BY OrderID DESC");
+                "' ORDER BY OrderID ASC");
     }
 
     public Order getCart(String Username) {

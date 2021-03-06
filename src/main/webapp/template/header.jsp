@@ -60,10 +60,12 @@
                             Quản lí
                         </a>
                         <div class="dropdown-menu" style="background: #53382c;">
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/products/add">
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/products/add">
                                 Thêm mặt hàng
                             </a>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/order/manage/list">Đơn hàng</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/order/list">Đơn hàng</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/chart">Thống kê</a>
+
                         </div>
                     </li>
                 </c:if>

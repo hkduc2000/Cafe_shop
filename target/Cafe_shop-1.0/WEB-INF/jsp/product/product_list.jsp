@@ -34,14 +34,8 @@
 
 <script>
     addThousandSep();
-    cur_page=1;
-    items = document.getElementsByClassName("pagingitem");
-    size = 8;
-    prev = document.getElementById("prev");
-    next = document.getElementById("next");
-    lblcur = document.getElementById("cur");
-    lbltotal = document.getElementById("total");
-    controller = document.getElementById("paginationControl");
+    size=8;
+    items = $('.pagingitem');
     pagingInit();
 </script>
 <%@ include file = "/template/footer.jsp"%>

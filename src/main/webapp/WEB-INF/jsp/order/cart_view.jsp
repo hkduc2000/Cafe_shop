@@ -34,7 +34,7 @@
                         </c:if>
                     </c:forEach>
                     <c:choose>
-                        <c:when test="${productinf.quantity > cart.orderInf[i].quantity}">
+                        <c:when test="${productinf.quantity >= cart.orderInf[i].quantity}">
                             <td class="align-middle">Còn hàng</td>
                         </c:when>
                         <c:otherwise>

@@ -103,6 +103,7 @@ create table ComboInOrder(
 
 
 --use cafe_shop_db
+--select * from sales
 --select * from [order]
 --select * from ProductInOrder
 --select * from sizetable
@@ -114,3 +115,4 @@ create table ComboInOrder(
 --use master
 --ALTER DATABASE [cafe_shop_db] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 --drop database cafe_shop_db
+

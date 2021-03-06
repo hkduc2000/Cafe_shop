@@ -83,7 +83,7 @@
         </c:if>
         
         <c:if test="${order.stepID > 2}">
-            <form action="${pageContext.request.contextPath}/order/previous_step" method="POST" style="display: inline-block;">
+            <form action="${pageContext.request.contextPath}/admin/order/previous_step" method="POST" style="display: inline-block;">
                 <input type="hidden" name="OrderID" value="${order.orderID}">
                 <button type="submit" class="btn   mb-2"
                         style="background: #6f2a0c96; color: #fff;">
@@ -94,7 +94,7 @@
             </form>
         </c:if>
         <c:if test="${order.stepID < steps.size()}">
-            <form action="${pageContext.request.contextPath}/order/next_step" method="POST" style="display: inline-block;">
+            <form action="${pageContext.request.contextPath}/admin/order/next_step" method="POST" style="display: inline-block;">
                 <input type="hidden" name="OrderID" value="${order.orderID}">
                 <button type="submit" class="btn mr-4 mb-2"
                         style="background: #6f2a0cba; color: #fff; ">

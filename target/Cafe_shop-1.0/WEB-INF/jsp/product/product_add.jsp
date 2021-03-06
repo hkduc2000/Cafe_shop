@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file = "/template/header.jsp"%>
-<form:form action="${pageContext.request.contextPath}/products/add" method="POST" 
+<form:form action="${pageContext.request.contextPath}/admin/products/add" method="POST" 
            modelAttribute="product" enctype="multipart/form-data">
     <div class="row">
         <div class="form-group col-12 col-md-7">

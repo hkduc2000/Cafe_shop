@@ -26,7 +26,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             throws Exception {
         
         cookieProcess.welcomeLoginUser(request, response);
-        
+        request.setAttribute("newInfo", new User());
         //check cart
         HttpSession session = request.getSession();
         if (session.getAttribute("role") != null && session.getAttribute("role").equals("admin")){
@@ -44,7 +44,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
             ModelAndView modelAndView) throws Exception {
-        request.setAttribute("newInfo", new User());
+        
     }
 
     @Override

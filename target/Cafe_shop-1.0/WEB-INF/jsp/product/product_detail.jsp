@@ -55,13 +55,13 @@
     <div class="col-12 col-md-2 d-none d-md-block pt-2 " style="background: #fff8dd; margin-left: 6%;">
         <p style="text-align: center; font-size: 1.3rem;">Các sản phẩm liên quan</p>
         <c:forEach items="${bestSeller[product.categoryID-1]}" var="s">
-            <div style="text-align: center;">
+            <div style="text-align: center;" class="mb-3">
                <a href="${pageContext.request.contextPath}/products/detail/${s.productID}" style="text-decoration: none;">
                     <img src ="${pageContext.request.contextPath}/static/img/${s.productImage}" width="100%">
                         <p class="truncate itemname pl-3 mb-0" style="color:black;">${s.productName}</p>
                         <b class="truncate pl-2" style="color:black;">
-                            <span class="addsep">${product.sizes[0].price}</span>đ
-                            - <span class="d-block d-sm-inline"><span class="addsep">${s.sizes[s.sizes.size()-1].price}</span>đ</span>
+                            <span class="addsep1">${product.sizes[0].price}</span>đ
+                            - <span class="d-block d-sm-inline"><span class="addsep1">${s.sizes[s.sizes.size()-1].price}</span>đ</span>
                         </b>
                 </a>
             </div>   
@@ -95,6 +95,7 @@
         }
         addThousandSep();
     }
+    addThousandSep1();
     updatePriceAndQuantity();
 </script>
 <%@ include file = "/template/footer.jsp"%>

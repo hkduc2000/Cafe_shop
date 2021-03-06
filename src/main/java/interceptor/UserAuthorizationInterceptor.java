@@ -5,10 +5,9 @@
  */
 package interceptor;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
+import model.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,10 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author hokiduc
  */
-public class AuthorizationInterceptor implements HandlerInterceptor{
+public class UserAuthorizationInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
+        User user = (User)request.getSession().getAttribute("user");
+        if (user==null){
+            response.sendRedirect(request.getContextPath() +"/login");
+        }
         return true;
     }
 

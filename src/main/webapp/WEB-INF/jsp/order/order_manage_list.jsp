@@ -6,7 +6,7 @@
 <ul class="nav nav-tabs" style="text-align:center;" role="tablist">
     <c:forEach var="i" begin="1" end="${steps.size()-1}">
         <li class="nav-item" style="display: inline;"> 
-            <a class="nav-link ${i eq 1?"active":""}" data-toggle="tab" 
+            <a class="nav-link ${i eq 1?"active":""}" onclick="switchTab(${i})" data-toggle="tab" 
                href="#step${i}">${steps[i]}</a>
         </li>
     </c:forEach>
@@ -31,9 +31,9 @@
                 <tbody>
                 <c:forEach items="${orders}" var="order">
                     <c:if test ="${order.stepID == i+1}">
-                    <tr class="pagingitem showit">
+                    <tr class="pagingitem">
                         <td class="align-middle" scope="col">
-                            <form action="${pageContext.request.contextPath}/order/manage/detail" method="POST">
+                            <form action="${pageContext.request.contextPath}/admin/order/detail" method="POST">
                                 <input type="hidden" name="OrderID" value="${order.orderID}">
                                 <input type="submit" style="border:none; background-color: transparent; color: #007bff;" value="${order.orderID}">
                             </form>
@@ -59,7 +59,7 @@
                         </td>
                         <td>
                             <c:if test="${order.stepID > 2}">
-                                <form action="${pageContext.request.contextPath}/order/previous_step" method="POST" style="display: inline-block;">
+                                <form action="${pageContext.request.contextPath}/admin/order/previous_step" method="POST" style="display: inline-block;">
                                     <input type="hidden" name="OrderID" value="${order.orderID}">
                                     <button type="submit" class="btn"
                                             style="background: #6f2a0cba; color: #fff;">
@@ -72,7 +72,7 @@
                         </td>
                         <td>
                             <c:if test="${order.stepID < steps.size()}">
-                                <form action="${pageContext.request.contextPath}/order/next_step" method="POST" style="display: inline-block;">
+                                <form action="${pageContext.request.contextPath}/admin/order/next_step" method="POST" style="display: inline-block;">
                                     <input type="hidden" name="OrderID" value="${order.orderID}">
                                     <button type="submit" class="btn"
                                             style="background: #6f2a0cba; color: #fff; ">
@@ -120,15 +120,14 @@
 </nav>
 <script>
     addThousandSep();
-    controller = document.getElementById('paginationControl');
-    prev = document.getElementById('prev');
-    next = document.getElementById('next');
-    lblcur = document.getElementById('cur');
-    lbltotal = document.getElementById('total');
-    curtab = 2;
-    size = 6;
-    tabname = 'step';
-    itemDisplay = 'table-row'
-    switchTab(2);
+    size=4;
+    function switchTab(i){
+        items = $('#step' + i + ' .pagingitem');
+        items.each(function(){
+            $(this).show();
+        });
+        pagingInit();
+    }
+    switchTab(1);
 </script>
 <%@ include file = "/template/footer.jsp"%>

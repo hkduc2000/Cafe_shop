@@ -32,6 +32,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AuthenticateController {
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+    
     @PostMapping("/login")
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws IOException{
         ModelAndView mv = new ModelAndView("login_register_result");

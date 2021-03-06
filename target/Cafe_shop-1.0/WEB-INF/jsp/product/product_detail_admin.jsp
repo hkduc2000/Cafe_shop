@@ -7,7 +7,7 @@
     <div class="col-12 col-md-9">
         <div class="row">
             <div class="carousel col-12 col-md-6">
-                <img class="d-block w-100" src="${pageContext.request.contextPath}/static/img/${product.productImage}">
+                <img class="d-block w-100 rounded-circle" src="${pageContext.request.contextPath}/static/img/${product.productImage}">
             </div>
             <div class="col-12 col-md-6 pl-3">
                 <h3 class="mt-4">${product.productName}</h3>
@@ -58,9 +58,9 @@
     <div class="col-12 col-md-2 d-none d-md-block pt-2 " style="background: #fff8dd; margin-left: 6%;">
         <p style="text-align: center; font-size: 1.3rem;">Các sản phẩm liên quan</p>
         <c:forEach items="${bestSeller[product.categoryID-1]}" var="s">
-            <div style="text-align: center;">
+            <div style="text-align: center;" class="mb-3">
                <a href="${pageContext.request.contextPath}/products/detail/${s.productID}" style="text-decoration: none;">
-                    <img src ="${pageContext.request.contextPath}/static/img/${s.productImage}" width="100%">
+                    <img class="rounded" src="${pageContext.request.contextPath}/static/img/${s.productImage}" width="100%">
                         <p class="truncate itemname pl-3 mb-0" style="color:black;">${s.productName}</p>
                         <b class="truncate pl-2" style="color:black;">
                             <span class="addsep">${product.sizes[0].price}</span>đ
@@ -86,7 +86,7 @@
                 <p>2. Đồng thời sẽ xóa dữ liệu của sản phẩm trong kho hàng, hình ảnh</p>
             </div>
             <div class="modal-footer" style="text-align: center;">
-                <form action="${pageContext.request.contextPath}/products/delete" method="POST">
+                <form action="${pageContext.request.contextPath}/admin/products/delete" method="POST">
                     <input type="hidden" name="ProductID" value="${product.productID}"/>
                     <input type="hidden" name="CategoryID" value="${product.categoryID}"/>
                     <button type="submit" class="btn btn-danger">Xóa</button>

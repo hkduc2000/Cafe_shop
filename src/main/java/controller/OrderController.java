@@ -98,29 +98,5 @@ public class OrderController {
         return "message_page";
     }
     
-    @GetMapping("/manage/list")
-    public String OrderManageList(Model model){
-        model.addAttribute("orders", new OrderDAO().getAll());
-        model.addAttribute("steps", new OrderDAO().loadStepTable());
-        return "order/order_manage_list";
-    }
     
-    @PostMapping("/manage/detail")
-    public String OrderManageDetail(Model model, @RequestParam int OrderID){
-        model.addAttribute("order", new OrderDAO().getOrderByOrderID(OrderID));
-        model.addAttribute("steps", new OrderDAO().loadStepTable());
-        return "order/order_manage_detail";
-    }
-    
-    @PostMapping("/next_step")
-    public String MoveOrderToNextStep(@RequestParam int OrderID){
-        new OrderDAO().moveOrderToNextOrPreviousStep(OrderID, 1);
-        return "redirect:/order/manage/list";
-    }
-    
-    @PostMapping("/previous_step")
-    public String MoveOrderToPreviousStep(@RequestParam int OrderID){
-        new OrderDAO().moveOrderToNextOrPreviousStep(OrderID, -1);
-        return "redirect:/order/manage/list";
-    }
 }

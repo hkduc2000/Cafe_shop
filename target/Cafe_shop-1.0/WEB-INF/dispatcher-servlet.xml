@@ -33,7 +33,11 @@
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
-            <bean class="interceptor.AuthorizationInterceptor"/>
+            <bean class="interceptor.AdminAuthorizationInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/order/**"/>
+            <bean class="interceptor.UserAuthorizationInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
     
